@@ -2,17 +2,17 @@
     "typescript.updateImportsOnFileMove.enabled": "always",
     "files.trimTrailingWhitespace": true,
     "explorer.confirmDelete": false,
-    "editor.tokenColorCustomizations": {
-        "textMateRules": [
-            {
-                "name": "interface",
-                "scope": ["entity.name.type.interface.ts"],
-                "settings": {
-                    "foreground": "#b8d7a3"
-                }
-            }
-        ]
-    },
+    // "editor.tokenColorCustomizations": {
+    //     "textMateRules": [
+    //         {
+    //             "name": "interface",
+    //             "scope": ["entity.name.type.interface.ts"],
+    //             "settings": {
+    //                 "foreground": "#b8d7a3"
+    //             }
+    //         }
+    //     ]
+    // },
     "html.format.enable": false,
     "beautify.language": {
         "html": ["html"],

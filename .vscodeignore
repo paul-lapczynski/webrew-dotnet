@@ -4,3 +4,4 @@ dist/
 spa/
 bin/
 node_modules
+obj/
