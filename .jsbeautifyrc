@@ -1,0 +1,8 @@
+{
+    "wrap_attributes": "force",
+    "wrap-attributes-indent-size": 4,
+    "html": {
+        "indent-size": 4,
+        "indent_with_tabs": true
+    }
+}

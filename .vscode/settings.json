@@ -1,0 +1,38 @@
+{
+    "typescript.updateImportsOnFileMove.enabled": "always",
+    "files.trimTrailingWhitespace": true,
+    "explorer.confirmDelete": false,
+    "editor.tokenColorCustomizations": {
+        "textMateRules": [
+            {
+                "name": "interface",
+                "scope": ["entity.name.type.interface.ts"],
+                "settings": {
+                    "foreground": "#b8d7a3"
+                }
+            }
+        ]
+    },
+    "html.format.enable": false,
+    "beautify.language": {
+        "html": ["html"],
+        "css": [],
+        "js": []
+    },
+    "prettier.disableLanguages": ["html"],
+    "[jsonc]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[json]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[typescript]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "files.exclude": {
+        "**/.classpath": true,
+        "**/.project": true,
+        "**/.settings": true,
+        "**/.factorypath": true
+    }
+}
