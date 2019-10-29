@@ -4,6 +4,8 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
+using MongoDB.Bson;
+using MongoDB.Driver;
 
 namespace webrew_dotnet.Controllers
 {
@@ -20,6 +22,13 @@ namespace webrew_dotnet.Controllers
 
         public WeatherForecastController(ILogger<WeatherForecastController> logger)
         {
+			var client = new MongoClient("mongodb://localhost:27017");
+			var database = client.GetDatabase("Webrew");
+
+			var collection = database.GetCollection<User>("Users");
+
+			var user = collection.AsQueryable().Where(c => c.Email == "paul.lapczynski@tylertech.com").ToList();
+
             _logger = logger;
         }
 
@@ -36,4 +45,12 @@ namespace webrew_dotnet.Controllers
             .ToArray();
         }
     }
+
+	public class User
+	{
+		public ObjectId _id { get; set; }
+		public string Email { get; set; }
+
+		public string Username { get; set; }
+	}
 }

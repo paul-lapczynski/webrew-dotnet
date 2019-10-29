@@ -2,6 +2,12 @@
 	<span mat-card-header>Hello</span>
 	<mat-card-content>
 		<mat-card-actions>
+			<mat-form-field [floatLabel]="true"
+				[appearance]="'outline'">
+				<mat-label>Outline form field</mat-label>
+				<input matInput
+					[placeholder]="'test'" />
+			</mat-form-field>
 			<button mat-button>
 				click me
 			</button>

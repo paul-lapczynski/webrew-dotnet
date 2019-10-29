@@ -10,7 +10,7 @@ import { HomeComponent } from './home/home.component';
 import { CounterComponent } from './counter/counter.component';
 import { FetchDataComponent } from './fetch-data/fetch-data.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MatCardModule, MatButtonModule } from '@angular/material';
+import { MatCardModule, MatButtonModule, MatInputModule, MatCheckboxModule } from '@angular/material';
 
 @NgModule({
     declarations: [AppComponent, NavMenuComponent, HomeComponent, CounterComponent, FetchDataComponent],
@@ -25,7 +25,9 @@ import { MatCardModule, MatButtonModule } from '@angular/material';
         ]),
         BrowserAnimationsModule,
         MatCardModule,
-        MatButtonModule
+        MatButtonModule,
+        MatInputModule,
+        MatCheckboxModule
     ],
     providers: [],
     bootstrap: [AppComponent]
