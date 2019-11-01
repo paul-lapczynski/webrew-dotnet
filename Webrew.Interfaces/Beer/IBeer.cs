@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Webrew.Interfaces.Coffee
+namespace Webrew.Interfaces.Beer
 {
-	public interface ICoffee
+	public interface IBeer
 	{
 		Guid Id { get; set; }
 

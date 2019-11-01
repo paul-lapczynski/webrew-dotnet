@@ -1,11 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
-using Webrew.Interfaces.Coffee;
+using Webrew.Interfaces.Beer;
 
-namespace Webrew.Models.Coffees
+namespace Webrew.Models.Beers
 {
-	public class Coffee : ICoffee
+	public class Beer : IBeer
 	{
 		public Guid Id { get; set; }
 

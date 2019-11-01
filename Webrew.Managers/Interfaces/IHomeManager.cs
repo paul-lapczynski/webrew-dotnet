@@ -2,14 +2,14 @@
 using System.Collections.Generic;
 using System.Text;
 using System.Threading.Tasks;
-using Webrew.Interfaces.Coffee;
+using Webrew.Interfaces.Beer;
 
 namespace Webrew.Managers.Interfaces
 {
 	public interface IHomeManager
 	{
-		Task<ICoffee> InsertCoffee();
+		Task<IBeer> InsertBeer();
 
-		Task<List<ICoffee>> GetCoffees();
+		Task<List<IBeer>> GetBeers();
 	}
 }

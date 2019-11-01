@@ -15,8 +15,8 @@ namespace webrew_dotnet.Helpers.Startup
 			services.Configure<DbClientOptions>(configuration.GetSection(nameof(DbClientOptions)));
 			services.AddSingleton<IDbClientOptions>(sp => sp.GetRequiredService<IOptions<DbClientOptions>>().Value);
 			services.AddSingleton<IDbClient, DbClient>();
-			services.AddSingleton<ICoffeeCollection, CoffeeCollection>();
-			services.AddSingleton<ICoffeeRepository, CoffeeRepository>();
+			services.AddSingleton<IBeerCollection, BeerCollection>();
+			services.AddSingleton<IBeerRepository, BeerRepository>();
 			return services;
 		}
 	}

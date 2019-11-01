@@ -4,33 +4,33 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Webrew.Data.Interfaces;
-using Webrew.Interfaces.Coffee;
+using Webrew.Interfaces.Beer;
 using Webrew.Managers.Interfaces;
-using Webrew.Models.Coffees;
+using Webrew.Models.Beers;
 
 namespace Webrew.Managers
 {
 	public class HomeManager : IHomeManager
 	{
-		private readonly ICoffeeRepository Repository;
-		public HomeManager(ICoffeeRepository repository)
+		private readonly IBeerRepository Repository;
+		public HomeManager(IBeerRepository repository)
 		{
 			Repository = repository;
 		}
 
-		public async Task<List<ICoffee>> GetCoffees()
+		public async Task<List<IBeer>> GetBeers()
 		{
-			return await Task.FromResult(Repository.GetCoffees().ToList());
+			return await Task.FromResult(Repository.GetBeers().ToList());
 		}
 
-		public List<ICoffee> GetRecentBrews()
+		public List<IBeer> GetRecentBrews()
 		{
-			return Repository.GetCoffees().Where(c => c.CreatedDate > DateTime.UtcNow.AddDays(-2)).ToList();
+			return Repository.GetBeers().Where(c => c.CreatedDate > DateTime.UtcNow.AddDays(-2)).ToList();
 		}
 
-		public async Task<ICoffee> InsertCoffee()
+		public async Task<IBeer> InsertBeer()
 		{
-			return await Repository.InsertCoffee(new Coffee { Name = "test", CreatedDate = DateTime.UtcNow });
+			return await Repository.InsertBeer(new Beer { Name = "test", CreatedDate = DateTime.UtcNow });
 		}
 	}
 }

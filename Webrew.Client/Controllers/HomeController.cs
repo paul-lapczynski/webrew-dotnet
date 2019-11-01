@@ -8,9 +8,9 @@ using MongoDB.Bson;
 using MongoDB.Driver;
 using Webrew.Data.Interfaces;
 using Webrew.Interfaces;
-using Webrew.Interfaces.Coffee;
+using Webrew.Interfaces.Beer;
 using Webrew.Managers.Interfaces;
-using Webrew.Models.Coffees;
+using Webrew.Models.Beers;
 
 namespace webrew_dotnet.Controllers
 {
@@ -25,9 +25,9 @@ namespace webrew_dotnet.Controllers
         }
 
         [HttpGet]
-        public async Task<List<ICoffee>> GetCoffees()
+        public async Task<List<IBeer>> GetBeers()
         {
-			return await Manager.GetCoffees();
+			return await Manager.GetBeers();
         }
     }
 }
