@@ -1,14 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
-using MongoDB.Bson;
-using MongoDB.Driver;
-using Webrew.Data.Interfaces;
-using Webrew.Interfaces;
-using Webrew.Interfaces.Coffee;
 using Webrew.Managers.Interfaces;
 using Webrew.Models.Coffees;
 
@@ -25,9 +19,17 @@ namespace webrew_dotnet.Controllers
         }
 
         [HttpGet]
-        public async Task<List<ICoffee>> GetCoffees()
+        public async Task<IActionResult> GetCoffees()
         {
-			return await Manager.GetCoffees();
+			return Ok(await Manager.GetCoffees());
         }
-    }
+
+		[HttpPost]
+		public async Task<IActionResult> AddCoffee(Coffee coffee)
+		{
+			var result = await Manager.AddCoffee(coffee);
+
+			return Created(ControllerContext.HttpContext.Request.Host.ToUriComponent(), coffee);
+		}
+	}
 }

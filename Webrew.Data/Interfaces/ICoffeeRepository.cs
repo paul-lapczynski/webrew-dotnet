@@ -10,7 +10,7 @@ namespace Webrew.Data.Interfaces
 {
 	public interface ICoffeeRepository
 	{
-		IQueryable<ICoffee> GetCoffees();
+		IQueryable<Coffee> GetCoffees();
 
 		Task<Coffee> InsertCoffee(Coffee coffee);
 	}

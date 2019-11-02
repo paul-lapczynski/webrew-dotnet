@@ -24,7 +24,7 @@ namespace Webrew.Data.Repositories
 			Collection = collection;
 		}
 
-		public IQueryable<ICoffee> GetCoffees()
+		public IQueryable<Coffee> GetCoffees()
 		{
 			return from coffee in Coffees
 				   select coffee;

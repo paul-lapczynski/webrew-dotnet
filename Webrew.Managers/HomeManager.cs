@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MongoDB.Bson;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -18,19 +19,14 @@ namespace Webrew.Managers
 			Repository = repository;
 		}
 
-		public async Task<List<ICoffee>> GetCoffees()
+		public async Task<List<Coffee>> GetCoffees()
 		{
 			return await Task.FromResult(Repository.GetCoffees().ToList());
 		}
 
-		public List<ICoffee> GetRecentBrews()
+		public async Task<Coffee> AddCoffee(Coffee coffee)
 		{
-			return Repository.GetCoffees().Where(c => c.CreatedDate > DateTime.UtcNow.AddDays(-2)).ToList();
-		}
-
-		public async Task<ICoffee> InsertCoffee()
-		{
-			return await Repository.InsertCoffee(new Coffee { Name = "test", CreatedDate = DateTime.UtcNow });
+			return await Repository.InsertCoffee(coffee);
 		}
 	}
 }

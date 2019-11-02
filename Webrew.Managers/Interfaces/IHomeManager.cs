@@ -3,13 +3,14 @@ using System.Collections.Generic;
 using System.Text;
 using System.Threading.Tasks;
 using Webrew.Interfaces.Coffee;
+using Webrew.Models.Coffees;
 
 namespace Webrew.Managers.Interfaces
 {
 	public interface IHomeManager
 	{
-		Task<ICoffee> InsertCoffee();
+		Task<Coffee> AddCoffee(Coffee coffee);
 
-		Task<List<ICoffee>> GetCoffees();
+		Task<List<Coffee>> GetCoffees();
 	}
 }

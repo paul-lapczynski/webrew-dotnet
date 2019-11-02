@@ -54,6 +54,7 @@
           "options": {
             "browserTarget": "webrew_dotnet:build"
           },
+          "sourceMap": true,
           "configurations": {
             "production": {
               "browserTarget": "webrew_dotnet:build:production"
