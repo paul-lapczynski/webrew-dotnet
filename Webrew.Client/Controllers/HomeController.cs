@@ -26,11 +26,11 @@ namespace webrew_dotnet.Controllers
         }
 
 		[HttpPost]
-		public async Task<IActionResult> AddCoffee(Coffee coffee)
+		public async Task<IActionResult> AddBeer(Beer beer)
 		{
-			var result = await Manager.AddCoffee(coffee);
+			var result = await Manager.AddBeer(beer);
 
-			return Created(ControllerContext.HttpContext.Request.Host.ToUriComponent(), coffee);
+			return Created(ControllerContext.HttpContext.Request.Host.ToUriComponent(), result);
 		}
 	}
 }

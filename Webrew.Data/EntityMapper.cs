@@ -13,7 +13,7 @@ namespace Webrew.Data
 		public static void RegisterCollectionMappings()
 		{
 			BsonSerializer.RegisterIdGenerator(typeof(ObjectId), ObjectIdGenerator.Instance);
-			BsonClassMap.RegisterClassMap<Coffee>(cm =>
+			BsonClassMap.RegisterClassMap<Beer>(cm =>
 			{
 				cm.AutoMap();
 				cm.MapIdMember(m => m.Id);

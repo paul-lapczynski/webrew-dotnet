@@ -26,7 +26,7 @@ namespace Webrew.Managers
 
 		public async Task<Beer> AddBeer(Beer beer)
 		{
-			return await Repository.InsertBeer(Beer);
+			return await Repository.InsertBeer(beer);
 		}
 	}
 }
