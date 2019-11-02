@@ -24,7 +24,7 @@ namespace Webrew.Data.Repositories
 			Collection = collection;
 		}
 
-		public IQueryable<Beer> GetBeers()
+		public IMongoQueryable<Beer> GetBeers()
 		{
 			return from beer in Beers
                    select beer;

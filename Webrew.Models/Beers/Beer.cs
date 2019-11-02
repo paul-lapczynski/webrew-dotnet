@@ -6,10 +6,8 @@ using Webrew.Interfaces.Beer;
 
 namespace Webrew.Models.Beers
 {
-	public class Beer : IBeer
+	public class Beer : Entity, IBeer
 	{
-		public ObjectId Id { get; set; }
-
 		public string Name { get; set; }
 
 		public DateTime CreatedDate { get; set; }

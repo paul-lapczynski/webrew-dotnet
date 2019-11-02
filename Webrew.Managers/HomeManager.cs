@@ -1,4 +1,5 @@
 ﻿using MongoDB.Bson;
+using MongoDB.Driver;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -21,7 +22,7 @@ namespace Webrew.Managers
 
 		public async Task<List<Beer>> GetBeers()
 		{
-			return await Task.FromResult(Repository.GetBeers().ToList());
+			return await Repository.GetBeers().ToListAsync();
 		}
 
 		public async Task<Beer> AddBeer(Beer beer)
