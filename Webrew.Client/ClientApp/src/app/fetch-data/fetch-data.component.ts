@@ -12,7 +12,6 @@ export class FetchDataComponent {
         http.get<WeatherForecast[]>(baseUrl + 'home').subscribe(
             result => {
                 this.forecasts = result;
-                http.post(baseUrl + 'home', result[0]).subscribe();
             },
             error => console.error(error)
         );
