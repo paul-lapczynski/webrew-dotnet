@@ -4,7 +4,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using Webrew.Managers.Interfaces;
-using Webrew.Models.Coffees;
+using Webrew.Models.Beers;
 
 namespace webrew_dotnet.Controllers
 {
@@ -19,9 +19,10 @@ namespace webrew_dotnet.Controllers
         }
 
         [HttpGet]
-        public async Task<IActionResult> GetCoffees()
+        public async Task<IActionResult> GetBeers()
         {
-			return Ok(await Manager.GetCoffees());
+			var beers = await Manager.GetBeers();
+            return Ok(beers);
         }
 
 		[HttpPost]

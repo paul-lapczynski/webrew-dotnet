@@ -5,28 +5,28 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Webrew.Data.Interfaces;
-using Webrew.Interfaces.Coffee;
+using Webrew.Interfaces.Beer;
 using Webrew.Managers.Interfaces;
-using Webrew.Models.Coffees;
+using Webrew.Models.Beers;
 
 namespace Webrew.Managers
 {
 	public class HomeManager : IHomeManager
 	{
-		private readonly ICoffeeRepository Repository;
-		public HomeManager(ICoffeeRepository repository)
+		private readonly IBeerRepository Repository;
+		public HomeManager(IBeerRepository repository)
 		{
 			Repository = repository;
 		}
 
-		public async Task<List<Coffee>> GetCoffees()
+		public async Task<List<Beer>> GetBeers()
 		{
-			return await Task.FromResult(Repository.GetCoffees().ToList());
+			return await Task.FromResult(Repository.GetBeers().ToList());
 		}
 
-		public async Task<Coffee> AddCoffee(Coffee coffee)
+		public async Task<Beer> AddBeer(Beer beer)
 		{
-			return await Repository.InsertCoffee(coffee);
+			return await Repository.InsertBeer(Beer);
 		}
 	}
 }
