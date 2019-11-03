@@ -29,6 +29,12 @@ namespace webrew_dotnet.Helpers.Startup
 		{
 			if (value is ObjectId objectIdValue)
 			{
+				if (value == ObjectId.Empty)
+				{
+					writer.WriteValue(ObjectId.Empty.ToString());
+					return;
+				}
+
 				writer.WriteValue(objectIdValue.ToString());
 			}
 			else

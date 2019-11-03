@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MongoDB.Driver.Linq;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -10,7 +11,7 @@ namespace Webrew.Data.Interfaces
 {
 	public interface IBeerRepository
 	{
-		IQueryable<Beer> GetBeers();
+		IMongoQueryable<Beer> GetBeers();
 
 		Task<Beer> InsertBeer(Beer beer);
 	}

@@ -4,6 +4,7 @@ using MongoDB.Bson.Serialization.IdGenerators;
 using System;
 using System.Collections.Generic;
 using System.Text;
+using Webrew.Models;
 using Webrew.Models.Beers;
 
 namespace Webrew.Data
@@ -13,7 +14,7 @@ namespace Webrew.Data
 		public static void RegisterCollectionMappings()
 		{
 			BsonSerializer.RegisterIdGenerator(typeof(ObjectId), ObjectIdGenerator.Instance);
-			BsonClassMap.RegisterClassMap<Beer>(cm =>
+			BsonClassMap.RegisterClassMap<Entity>(cm =>
 			{
 				cm.AutoMap();
 				cm.MapIdMember(m => m.Id);
