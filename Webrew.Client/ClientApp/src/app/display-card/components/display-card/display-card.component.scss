@@ -1,0 +1,8 @@
+.image-container {
+    display: flex;
+    flex-direction: row;
+    place-content: center;
+}
+.image {
+    max-width: 65%;
+}
