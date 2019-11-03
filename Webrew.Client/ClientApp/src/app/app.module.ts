@@ -19,6 +19,7 @@ import { NavBarModule } from './nav-bar/nav-bar.module';
         FormsModule,
         RouterModule.forRoot([
             { path: 'home', loadChildren: () => import('./home/home.module').then(m => m.HomeModule) },
+            { path: '', redirectTo: 'home', pathMatch: 'full' },
             { path: '**', redirectTo: 'home' }
         ]),
         BrowserAnimationsModule,
