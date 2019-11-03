@@ -18,7 +18,8 @@ import { NavBarModule } from './nav-bar/nav-bar.module';
         HttpClientModule,
         FormsModule,
         RouterModule.forRoot([
-            { path: 'home', loadChildren: () => import('./home/home.module').then(m => m.HomeModule) }
+            { path: 'home', loadChildren: () => import('./home/home.module').then(m => m.HomeModule) },
+            { path: '**', redirectTo: 'home' }
         ]),
         BrowserAnimationsModule,
         MatCardModule,
