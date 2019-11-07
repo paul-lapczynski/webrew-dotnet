@@ -5,13 +5,13 @@ VisualStudioVersion = 16.0.29418.71
 MinimumVisualStudioVersion = 15.0.26124.0
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "webrew-dotnet", "Webrew.Client\webrew-dotnet.csproj", "{3FE5CC26-FC4B-4764-BBF2-A1525B653D1B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Webrew.Data", "Webrew.Data\Webrew.Data.csproj", "{4D97ABA0-C9F6-43EF-80DB-C634F595D84B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Webrew.Data", "Webrew.Data\Webrew.Data.csproj", "{4D97ABA0-C9F6-43EF-80DB-C634F595D84B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Webrew.Managers", "Webrew.Managers\Webrew.Managers.csproj", "{78629A53-3804-4240-ABB4-C255358185AD}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Webrew.Managers", "Webrew.Managers\Webrew.Managers.csproj", "{78629A53-3804-4240-ABB4-C255358185AD}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Webrew.Interfaces", "Webrew.Interfaces\Webrew.Interfaces.csproj", "{0335DB61-E047-416E-960C-5831FBB1823E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Webrew.Common", "Webrew.Interfaces\Webrew.Common.csproj", "{0335DB61-E047-416E-960C-5831FBB1823E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Webrew.Models", "Webrew.Models\Webrew.Models.csproj", "{224C867E-FADC-43E4-8951-14993C8B0CA5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Webrew.Models", "Webrew.Models\Webrew.Models.csproj", "{224C867E-FADC-43E4-8951-14993C8B0CA5}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
