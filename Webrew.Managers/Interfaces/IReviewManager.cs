@@ -13,8 +13,8 @@ namespace Webrew.Managers.Interfaces
         
         Task<Review> AddReview(Review review);
 
-        Task<Review> UpdateReview(string Id, Review review);
+        Task<Review> UpdateReview(string id, Review review);
 
-        Task<Review> RemoveReview(string Id);
+        Task<Review> RemoveReview(string id);
 	}
 }

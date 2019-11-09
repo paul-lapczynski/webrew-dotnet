@@ -20,19 +20,34 @@ namespace Webrew.Managers
 			Repository = repository;
 		}
 
-		public async Task<List<Beer>> GetBeer(string Id)
+		public async Task<List<Beer>> GetBeer(string id)
 		{
-			return await Repository.GetBeer(Id).ToListAsync();
+			return await Repository.GetBeer(id).ToListAsync();
 		}
 
-		public async Task<Beer> UpdateBeer(string Id, Beer beer)
+		public Task<Beer> RemoveBeer(string id)
 		{
-			return await Repository.UpdateBeer(Id, beer).ToListAsync();
+			throw new NotImplementedException();
 		}
 
-		public async Task<Beer> RemoveBeer(string Id)
+		public Task<Beer> UpdateBeer(string id, Beer beer)
 		{
-			return Repository.RemoveBeer(Id);
+			throw new NotImplementedException();
+		}
+
+		//public async Task<Beer> UpdateBeer(string id, Beer beer)
+		//{
+		//	return await Repository.UpdateBeer(Id, beer).ToListAsync();
+		//}
+
+		//public async Task<Beer> RemoveBeer(string id)
+		//{
+		//	return Repository.RemoveBeer(Id);
+		//}
+
+		Task<Beer> IBeerManager.GetBeer(string id)
+		{
+			throw new NotImplementedException();
 		}
 	}
 }

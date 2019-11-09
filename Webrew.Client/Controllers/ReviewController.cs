@@ -34,17 +34,17 @@ namespace webrew_dotnet.Controllers
 		}
 
         [HttpPost("update")]
-		public async Task<IActionResult> UpdateReview(string Id, Review review)
+		public async Task<IActionResult> UpdateReview(string id, Review review)
 		{
-			var result = await Manager.UpdateReview(Id, review);
+			var result = await Manager.UpdateReview(id, review);
 
 			return Created(ControllerContext.HttpContext.Request.Host.ToUriComponent(), result);
 		}
         
         [HttpPost("remove")]
-		public async Task<IActionResult> RemoveReview(string Id)
+		public async Task<IActionResult> RemoveReview(string id)
 		{
-			var result = await Manager.RemoveReview(Id);
+			var result = await Manager.RemoveReview(id);
 
 			return Created(ControllerContext.HttpContext.Request.Host.ToUriComponent(), result);
 		}

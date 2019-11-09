@@ -37,20 +37,20 @@ namespace Webrew.Data.Repositories
 			return beer;
 		}
 
-		public IMongoQueryable<Beer> GetBeer(string Id)
+		public IMongoQueryable<Beer> GetBeer(string id)
 		{
 			// TODO correct query
 			//var query = new BsonDocument("_id", Id);
 			//var entity = Collection.Beers.Find(query);
 			//return entity;
 			var items = from beer in Beers
-                where beer.Name == Id
+                where beer.Name == id
                 select beer;
     
             return items;
 		}
 
-		public async Task<Beer> UpdateBeer(string Id, Beer beer)
+		public async Task<Beer> UpdateBeer(string id, Beer beer)
 		{
 			// TODO correct update
 			//var query = new BsonDocument("_id", Id); 
@@ -59,7 +59,7 @@ namespace Webrew.Data.Repositories
 			return beer;
 		}
 
-		public async Task<Beer> RemoveBeer(string Id)
+		public async Task<Beer> RemoveBeer(string id)
 		{
 			// TODO correct delete
 			//var query = new BsonDocument("_id", Id);

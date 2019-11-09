@@ -19,24 +19,24 @@ namespace webrew_dotnet.Controllers
         }
 
         [HttpGet]
-        public async Task<IActionResult> GetBeer(string Id)
+        public async Task<IActionResult> GetBeer(string id)
         {
-			var beer = await Manager.GetBeer(Id);
+			var beer = await Manager.GetBeer(id);
             return Ok(beer);
         }
 
         [HttpPost("update")]
-		public async Task<IActionResult> UpdateBeer(string Id, Beer beer)
+		public async Task<IActionResult> UpdateBeer(string id, Beer beer)
 		{
-			var result = await Manager.UpdateBeer(Id, beer);
+			var result = await Manager.UpdateBeer(id, beer);
 
 			return Created(ControllerContext.HttpContext.Request.Host.ToUriComponent(), result);
 		}
         
         [HttpPost("remove")]
-		public async Task<IActionResult> RemoveBeer(string Id)
+		public async Task<IActionResult> RemoveBeer(string id)
 		{
-			var result = await Manager.RemoveBeer(Id);
+			var result = await Manager.RemoveBeer(id);
 
 			return Created(ControllerContext.HttpContext.Request.Host.ToUriComponent(), result);
 		}

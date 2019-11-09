@@ -2,6 +2,8 @@ using System;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
+using Microsoft.AspNetCore.Mvc.ModelBinding;
+using Microsoft.AspNetCore.Mvc.ModelBinding.Binders;
 using Microsoft.AspNetCore.SpaServices.AngularCli;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -11,6 +13,7 @@ using MongoDB.Bson;
 using Newtonsoft.Json;
 using Webrew.Data;
 using Webrew.Interfaces;
+using webrew_dotnet.Controllers;
 using webrew_dotnet.Helpers.Startup;
 
 namespace webrew_dotnet
@@ -27,10 +30,13 @@ namespace webrew_dotnet
 		// This method gets called by the runtime. Use this method to add services to the container.
 		public void ConfigureServices(IServiceCollection services)
 		{
-			services.AddControllersWithViews().AddNewtonsoftJson(options =>
+			services.AddControllersWithViews(options =>
 			{
-				options.SerializerSettings.Converters.Add(new ObjectIdConverter());
-			});
+				options.ModelBinderProviders.Insert(0, new ObjectIdEntityProvider());
+			}).AddNewtonsoftJson(options =>
+					 {
+						 options.SerializerSettings.Converters.Add(new ObjectIdConverter());
+					 });
 			// In production, the Angular files will be served from this directory
 			services.AddSpaStaticFiles(configuration =>
 			{

@@ -30,14 +30,14 @@ namespace Webrew.Managers
 			return await Repository.InsertReview(review);
 		}
 		
-        public async Task<Review> UpdateReview(string Id, Review review)
+        public async Task<Review> UpdateReview(string id, Review review)
 		{
-			return await Repository.UpdateReview(Id, review);
+			return await Repository.UpdateReview(id, review);
 		}
         
-        public async Task<Review> RemoveReview(string Id)
+        public async Task<Review> RemoveReview(string id)
 		{
-			return await Repository.RemoveReview(Id);
+			return await Repository.RemoveReview(id);
 		}
 	}
 }

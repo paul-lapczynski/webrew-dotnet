@@ -15,8 +15,8 @@ namespace Webrew.Data.Interfaces
 
 		Task<Review> InsertReview(Review review);
 
-        Task<Review> UpdateReview(string Id, Review review);
+        Task<Review> UpdateReview(string id, Review review);
 
-        Task<Review> RemoveReview(string Id);
+        Task<Review> RemoveReview(string id);
 	}
 }

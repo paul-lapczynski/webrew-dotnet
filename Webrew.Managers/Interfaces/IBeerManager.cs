@@ -9,10 +9,10 @@ namespace Webrew.Managers.Interfaces
 {
 	public interface IBeerManager
 	{
-		Task<Beer> GetBeer(string Id);
+		Task<Beer> GetBeer(string id);
 
-        Task<Beer> UpdateBeer(string Id, Beer beer);
+        Task<Beer> UpdateBeer(string id, Beer beer);
 		
-		Task<Beer> RemoveBeer(string Id);
+		Task<Beer> RemoveBeer(string id);
 	}
 }

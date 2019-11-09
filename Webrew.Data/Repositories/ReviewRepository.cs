@@ -40,20 +40,20 @@ namespace Webrew.Data.Repositories
 			return review;
 		}
 
-		public IMongoQueryable<Review> GetReview(string Id)
+		public IMongoQueryable<Review> GetReview(string id)
 		{
 			// TODO correct query
             //var query = new BsonDocument("_id", Id);
 			//var entity = Collection.Reviews.Find(query);
 			//return entity;
             var items = from review in Reviews
-                where review.BeerId == Id
+                where review.BeerId == id
                 select review;
     
             return items;
 		}
 
-		public async Task<Review> UpdateReview(string Id, Review review)
+		public async Task<Review> UpdateReview(string id, Review review)
 		{
 			// TODO correct update
             //var query = new BsonDocument("_id", Id); 
@@ -62,7 +62,7 @@ namespace Webrew.Data.Repositories
 			return review;
 		}
 
-		public async Task<Review> RemoveReview(string Id)
+		public async Task<Review> RemoveReview(string id)
 		{
 			// TODO correct delete
             //var query = new BsonDocument("_id", Id);
