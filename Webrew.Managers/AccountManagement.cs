@@ -4,7 +4,8 @@ using System.Collections.Generic;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Text;
-using Webrew.Interfaces;
+using Webrew.Common.Interfaces;
+using Webrew.Common.Models;
 
 namespace Webrew.Managers
 {
@@ -16,7 +17,7 @@ namespace Webrew.Managers
 			Settings = settings;
 		}
 
-		public string GenerateToken(IUser user, TimeSpan? lifetime = null)
+		public string GenerateToken(User user, TimeSpan? lifetime = null)
 		{
 			var tokenDescriptor = new SecurityTokenDescriptor
 			{

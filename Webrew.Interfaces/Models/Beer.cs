@@ -2,9 +2,8 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
-using Webrew.Common.Models;
 
-namespace Webrew.Models.Common.Models
+namespace Webrew.Common.Models
 {
 	public class Beer : Entity
 	{

@@ -10,8 +10,8 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.IdentityModel.Tokens;
-using Webrew.Interfaces;
-using Webrew.Models;
+using Webrew.Common.Interfaces;
+using Webrew.Common.Models;
 
 namespace webrew_dotnet.Controllers
 {
@@ -33,17 +33,6 @@ namespace webrew_dotnet.Controllers
 			if (account != null)
 			{
 				var token = AccountManager.GenerateToken(account);
-				//var tokenDescriptor = new SecurityTokenDescriptor
-				//{
-				//	Subject = new ClaimsIdentity(new Claim[] { new Claim("UserId", 1.ToString()) }),
-				//	Expires = DateTime.UtcNow.AddMinutes(10),
-				//	SigningCredentials = new SigningCredentials(new SymmetricSecurityKey(Encoding.UTF8.GetBytes("092459F3-9E45-4C89-A4AA-6876F620C500 4D69FF19-560A-4E65-93BE-CD924EF9B409 F4789E36-2F4D-479E-A1DA-0BACD912D15A")), SecurityAlgorithms.HmacSha256Signature)
-				//};
-
-				//var tokenHandler = new JwtSecurityTokenHandler();
-				//var securityToken = tokenHandler.CreateToken(tokenDescriptor);
-				//var token = tokenHandler.WriteToken(securityToken);
-
 				return Ok(new { token });
 			}
 			else

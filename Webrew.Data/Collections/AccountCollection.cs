@@ -4,8 +4,8 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Threading.Tasks;
+using Webrew.Common.Models;
 using Webrew.Data.Interfaces;
-using Webrew.Models;
 
 namespace Webrew.Data.Collections
 {

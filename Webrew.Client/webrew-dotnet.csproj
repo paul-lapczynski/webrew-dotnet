@@ -46,7 +46,6 @@
     <ProjectReference Include="..\Webrew.Data\Webrew.Data.csproj" />
     <ProjectReference Include="..\Webrew.Interfaces\Webrew.Common.csproj" />
     <ProjectReference Include="..\Webrew.Managers\Webrew.Managers.csproj" />
-    <ProjectReference Include="..\Webrew.Models\Webrew.Models.csproj" />
   </ItemGroup>
 
   <Target Name="DebugEnsureNodeEnv" BeforeTargets="Build" Condition=" '$(Configuration)' == 'Debug' And !Exists('$(SpaRoot)node_modules') ">

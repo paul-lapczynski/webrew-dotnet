@@ -10,7 +10,6 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Webrew.Interfaces\Webrew.Common.csproj" />
-    <ProjectReference Include="..\Webrew.Models\Webrew.Models.csproj" />
   </ItemGroup>
 
 </Project>

@@ -4,8 +4,8 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using Webrew.Interfaces;
-using Webrew.Models;
+using Webrew.Common.Interfaces;
+using Webrew.Common.Models;
 
 namespace webrew_dotnet.Helpers.Startup
 {

@@ -12,6 +12,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Webrew.Data\Webrew.Data.csproj" />
+    <ProjectReference Include="..\Webrew.Interfaces\Webrew.Common.csproj" />
   </ItemGroup>
 
 </Project>

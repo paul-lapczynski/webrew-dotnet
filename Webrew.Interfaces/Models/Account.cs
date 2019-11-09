@@ -1,9 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
-using Webrew.Interfaces;
 
-namespace Webrew.Models.Common
+namespace Webrew.Common.Models
 {
 	public class Account : Entity
 	{

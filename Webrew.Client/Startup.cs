@@ -13,7 +13,6 @@ using Microsoft.IdentityModel.Tokens;
 using MongoDB.Bson;
 using Newtonsoft.Json;
 using Webrew.Data;
-using Webrew.Interfaces;
 using webrew_dotnet.Helpers.Startup;
 
 namespace webrew_dotnet

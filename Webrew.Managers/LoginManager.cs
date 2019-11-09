@@ -1,12 +1,7 @@
-﻿using Isopoh.Cryptography.Argon2;
-using Isopoh.Cryptography.SecureArray;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Security.Cryptography;
-using System.Text;
+﻿using System.Text;
 using System.Threading.Tasks;
 using Webrew.Common.Interfaces;
+using Webrew.Common.Models;
 using Webrew.Data.Interfaces;
 using Webrew.Managers.Utilities;
 
@@ -25,7 +20,7 @@ namespace Webrew.Managers
 			SecuritySettings = securitySettings;
 		}
 
-		public async Task<User> Login(ILoginCredentials credentials)
+		public async Task<User> Login(LoginCredentials credentials)
 		{
 			var account = await AccountCollection.Get(credentials.Username);
 			var passwordsMath = WebrewHasher.VerifyPasswordMath(credentials.Password, account.Password, SecuritySettings.PasswordHashSecret, account.Salt);
@@ -38,14 +33,14 @@ namespace Webrew.Managers
 			return await Task.FromResult<User>(null);
 		}
 
-		public async Task<IAccount> CreateAccount(ILoginCredentials credentials)
+		public async Task<Account> CreateAccount(CreateAccountCredentials credentials)
 		{
 			var salt = new byte[32];
 			var hashword = WebrewHasher.HashPassword(credentials.Password, SecuritySettings.PasswordHashSecret, salt);
 
 			var account = await AccountCollection.Add(new Account
 			{
-				Email = "",
+				Email = credentials.Email,
 				Password = hashword,
 				Username = credentials.Username,
 				Salt = Encoding.UTF8.GetString(salt)

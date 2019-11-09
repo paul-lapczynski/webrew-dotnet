@@ -3,12 +3,12 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Threading.Tasks;
+using Webrew.Common.Models;
 using Webrew.Data.Interfaces;
-using Webrew.Interfaces;
 
 namespace Webrew.Data.Collections
 {
-	public class WebrewCollection<T> : IWebrewCollection<T> where T : IEntity
+	public class WebrewCollection<T> : IWebrewCollection<T> where T : Entity
 	{
 		public IMongoCollection<T> Collection { get; }
 
