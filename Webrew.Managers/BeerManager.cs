@@ -13,23 +13,23 @@ namespace Webrew.Managers
 {
 	public class BeerManager : IBeerManager
 	{
-		private readonly IBeerRepository Repository;
-		public BeerManager(IBeerRepository repository)
+		private readonly IBeerCollection Collection;
+		public BeerManager(IBeerCollection collection)
 		{
-			Repository = repository;
+			Collection = collection;
 		}
 
-		public async Task<List<Beer>> GetBeer(string id)
+		public async Task<Beer> GetBeer(ObjectId id)
 		{
-			return await Repository.GetBeer(id).ToListAsync();
+			return await Collection.GetAsync(id);
 		}
 
-		public Task<Beer> RemoveBeer(string id)
+		public async Task<bool> RemoveBeer(ObjectId id)
 		{
-			throw new NotImplementedException();
+			return await Collection.RemoveAsync(id);
 		}
 
-		public Task<Beer> UpdateBeer(string id, Beer beer)
+		public Task<Beer> UpdateBeer(ObjectId id, Beer beer)
 		{
 			throw new NotImplementedException();
 		}
@@ -44,9 +44,5 @@ namespace Webrew.Managers
 		//	return Repository.RemoveBeer(Id);
 		//}
 
-		Task<Beer> IBeerManager.GetBeer(string id)
-		{
-			throw new NotImplementedException();
-		}
 	}
 }

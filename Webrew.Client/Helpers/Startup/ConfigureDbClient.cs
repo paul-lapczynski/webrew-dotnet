@@ -5,7 +5,6 @@ using System;
 using Webrew.Data;
 using Webrew.Data.Collections;
 using Webrew.Data.Interfaces;
-using Webrew.Data.Repositories;
 
 namespace webrew_dotnet.Helpers.Startup
 {
@@ -23,8 +22,6 @@ namespace webrew_dotnet.Helpers.Startup
 			services.AddSingleton<IReviewCollection, ReviewCollection>();
 			services.AddSingleton<IAccountCollection, AccountCollection>();
 			services.AddSingleton<IUserCollection, UserCollection>();
-			services.AddSingleton<IBeerRepository, BeerRepository>();
-			services.AddSingleton<IReviewRepository, ReviewRepository>();
 			return services;
 		}
 	}

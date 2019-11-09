@@ -13,30 +13,30 @@ namespace Webrew.Managers
 {
 	public class ReviewManager : IReviewManager
 	{
-		private readonly IReviewRepository Repository;
-		public ReviewManager(IReviewRepository repository)
+		private readonly IReviewCollection Collection;
+		public ReviewManager(IReviewCollection collection)
 		{
-			Repository = repository;
+			Collection = collection;
 		}
 
-		public async Task<List<Review>> GetReviews(string BeerId)
+		public async Task<List<Review>> GetReviews()
 		{
-            return await Repository.GetReviews(BeerId).ToListAsync();
+			return await Collection.GetListAsync(r => true);
 		}
 
 		public async Task<Review> AddReview(Review review)
 		{
-			return await Repository.InsertReview(review);
+			return await Collection.AddAsync(review);
 		}
 		
-        public async Task<Review> UpdateReview(string id, Review review)
-		{
-			return await Repository.UpdateReview(id, review);
-		}
+  //      public async Task<Review> UpdateReview(ObjectId id, Review review)
+		//{
+		//	return await Collection.UpdateReview(id, review);
+		//}
         
-        public async Task<Review> RemoveReview(string id)
+        public async Task<bool> RemoveReview(ObjectId id)
 		{
-			return await Repository.RemoveReview(id);
+			return await Collection.RemoveAsync(id);
 		}
 	}
 }

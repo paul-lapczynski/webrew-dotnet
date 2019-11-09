@@ -1,10 +1,13 @@
-﻿using MongoDB.Driver;
+﻿using MongoDB.Bson;
+using MongoDB.Driver;
+using MongoDB.Driver.Linq;
+using System.Threading.Tasks;
 using Webrew.Common.Models;
 
 namespace Webrew.Data.Interfaces
 {
-	public interface IBeerCollection
+	public interface IBeerCollection: IWebrewCollection<Beer>
 	{
-		IMongoCollection<Beer> Beers { get; }
+
 	}
 }

@@ -1,3 +1,4 @@
+using MongoDB.Bson;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -8,10 +9,10 @@ namespace Webrew.Managers.Interfaces
 {
 	public interface IBeerManager
 	{
-		Task<Beer> GetBeer(string id);
+		Task<Beer> GetBeer(ObjectId id);
 
-        Task<Beer> UpdateBeer(string id, Beer beer);
+        Task<Beer> UpdateBeer(ObjectId id, Beer beer);
 		
-		Task<Beer> RemoveBeer(string id);
+		Task<bool> RemoveBeer(ObjectId id);
 	}
 }

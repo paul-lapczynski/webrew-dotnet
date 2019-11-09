@@ -1,19 +1,27 @@
-﻿using MongoDB.Driver;
+﻿using MongoDB.Bson;
+using MongoDB.Driver;
+using MongoDB.Driver.Linq;
 using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Threading.Tasks;
 using Webrew.Common.Models;
 using Webrew.Data.Interfaces;
 
 namespace Webrew.Data.Collections
 {
-	public class BeerCollection : IBeerCollection
+	public class BeerCollection : WebrewCollection<Beer>, IBeerCollection
 	{
-		public IMongoCollection<Beer> Beers { get; }
+		private IMongoQueryable<Beer> Beers { get { return Collection.AsQueryable(); } }
 
-		public BeerCollection(IDbClient client)
+
+		public BeerCollection(IDbClient client) : base(client)
 		{
-			Beers = client.Database.GetCollection<Beer>("Beers");
+		}
+
+		public Task<Beer> UpdateBeer(ObjectId id, Beer beer)
+		{
+			throw new NotImplementedException();
 		}
 	}
 }

@@ -3,6 +3,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
+using MongoDB.Bson;
 using Webrew.Common.Models;
 using Webrew.Managers.Interfaces;
 
@@ -19,14 +20,14 @@ namespace webrew_dotnet.Controllers
         }
 
         [HttpGet]
-        public async Task<IActionResult> GetBeer(string id)
+        public async Task<IActionResult> GetBeer(ObjectId id)
         {
 			var beer = await Manager.GetBeer(id);
             return Ok(beer);
         }
 
-        [HttpPost("update")]
-		public async Task<IActionResult> UpdateBeer(string id, Beer beer)
+        [HttpPost("update/{id}")]
+		public async Task<IActionResult> UpdateBeer([FromRoute] ObjectId id, Beer beer)
 		{
 			var result = await Manager.UpdateBeer(id, beer);
 
@@ -34,7 +35,7 @@ namespace webrew_dotnet.Controllers
 		}
         
         [HttpPost("remove")]
-		public async Task<IActionResult> RemoveBeer(string id)
+		public async Task<IActionResult> RemoveBeer(ObjectId id)
 		{
 			var result = await Manager.RemoveBeer(id);
 

@@ -3,6 +3,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
+using MongoDB.Bson;
 using Webrew.Common.Models;
 using Webrew.Managers.Interfaces;
 
@@ -19,9 +20,9 @@ namespace webrew_dotnet.Controllers
         }
 
         [HttpGet]
-        public async Task<IActionResult> GetReviews(string BeerId)
+        public async Task<IActionResult> GetReviews()
         {
-			var reviews = await Manager.GetReviews(BeerId);
+			var reviews = await Manager.GetReviews();
             return Ok(reviews);
         }
 
@@ -33,16 +34,16 @@ namespace webrew_dotnet.Controllers
 			return Created(ControllerContext.HttpContext.Request.Host.ToUriComponent(), result);
 		}
 
-        [HttpPost("update")]
-		public async Task<IActionResult> UpdateReview(string id, Review review)
+        [HttpPost("update/{id}")]
+		public async Task<IActionResult> UpdateReview([FromRoute]ObjectId id, Review review)
 		{
-			var result = await Manager.UpdateReview(id, review);
+			//var result = await Manager.UpdateReview(id, review);
 
-			return Created(ControllerContext.HttpContext.Request.Host.ToUriComponent(), result);
+			return Created(ControllerContext.HttpContext.Request.Host.ToUriComponent(), null);
 		}
         
         [HttpPost("remove")]
-		public async Task<IActionResult> RemoveReview(string id)
+		public async Task<IActionResult> RemoveReview(ObjectId id)
 		{
 			var result = await Manager.RemoveReview(id);
 

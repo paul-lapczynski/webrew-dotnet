@@ -13,20 +13,20 @@ namespace Webrew.Managers
 {
 	public class HomeManager : IHomeManager
 	{
-		private readonly IBeerRepository Repository;
-		public HomeManager(IBeerRepository repository)
+		private readonly IBeerCollection Collection;
+		public HomeManager(IBeerCollection collection)
 		{
-			Repository = repository;
+			Collection = collection;
 		}
 
 		public async Task<List<Beer>> GetBeers()
 		{
-			return await Repository.GetBeers().ToListAsync();
+			return await Collection.GetListAsync(b => true);
 		}
 
 		public async Task<Beer> AddBeer(Beer beer)
 		{
-			return await Repository.InsertBeer(beer);
+			return await Collection.AddAsync(beer);
 		}
 	}
 }
