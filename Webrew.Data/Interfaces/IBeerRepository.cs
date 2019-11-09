@@ -13,6 +13,12 @@ namespace Webrew.Data.Interfaces
 	{
 		IMongoQueryable<Beer> GetBeers();
 
+		IMongoQueryable<Beer> GetBeer(string Id);
+
 		Task<Beer> InsertBeer(Beer beer);
+
+		Task<Beer> UpdateBeer(string Id, Beer beer);
+
+		Task<Beer> RemoveBeer(string Id);
 	}
 }

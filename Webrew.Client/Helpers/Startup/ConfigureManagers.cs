@@ -13,6 +13,8 @@ namespace webrew_dotnet.Helpers.Startup
 		public static IServiceCollection AddManagers(this IServiceCollection services)
 		{
 			services.AddSingleton<IHomeManager, HomeManager>();
+			services.AddSingleton<IBeerManager, BeerManager>();
+			services.AddSingleton<IReviewManager, ReviewManager>();
 			return services;
 		}
 	}

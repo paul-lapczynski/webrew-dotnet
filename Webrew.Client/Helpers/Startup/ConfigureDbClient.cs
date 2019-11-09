@@ -20,7 +20,9 @@ namespace webrew_dotnet.Helpers.Startup
 			services.AddSingleton<IDbClientOptions>(sp => sp.GetRequiredService<IOptions<DbClientOptions>>().Value);
 			services.AddSingleton<IDbClient, DbClient>();
 			services.AddSingleton<IBeerCollection, BeerCollection>();
+			services.AddSingleton<IReviewCollection, ReviewCollection>();
 			services.AddSingleton<IBeerRepository, BeerRepository>();
+			services.AddSingleton<IReviewRepository, ReviewRepository>();
 			return services;
 		}
 	}
