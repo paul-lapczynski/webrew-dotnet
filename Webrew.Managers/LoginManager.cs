@@ -37,7 +37,7 @@ namespace Webrew.Managers
 			return await Task.FromResult<User>(null);
 		}
 
-		public async Task<Account> CreateAccount(CreateAccountCredentials credentials)
+		public async Task<User> CreateUserAccount(CreateUserAccountCredentials credentials)
 		{
 			var salt = new byte[32];
 			var hashword = WebrewHasher.HashPassword(credentials.Password, SecuritySettings.PasswordHashSecret, salt);
@@ -50,10 +50,17 @@ namespace Webrew.Managers
 				Salt = Encoding.UTF8.GetString(salt)
 			}); ;
 
-			return account;
+			var user = await UserCollection.Add(new User
+			{
+				AccountId = account.Id,
+				Email = credentials.Email,
+				Username = credentials.Username
+			});
+
+			return user;
 		}
 
-		private string GenerateToken(User user, TimeSpan? lifetime = null)
+		public string GenerateToken(User user, TimeSpan? lifetime = null)
 		{
 			var tokenDescriptor = new SecurityTokenDescriptor
 			{
@@ -63,7 +70,7 @@ namespace Webrew.Managers
 					new Claim("Email", user.Email?.ToString() ?? string.Empty)
 				}),
 				Expires = DateTime.UtcNow.AddTicks(lifetime.HasValue ? lifetime.Value.Ticks : TimeSpan.FromDays(1).Ticks),
-				SigningCredentials = new SigningCredentials(new SymmetricSecurityKey(Encoding.UTF8.GetBytes(Settings.JwtSecret)), SecurityAlgorithms.HmacSha256Signature)
+				SigningCredentials = new SigningCredentials(new SymmetricSecurityKey(Encoding.UTF8.GetBytes(SecuritySettings.JwtSecret)), SecurityAlgorithms.HmacSha256Signature)
 			};
 
 			var tokenHandler = new JwtSecurityTokenHandler();
@@ -71,6 +78,11 @@ namespace Webrew.Managers
 			var token = tokenHandler.WriteToken(securityToken);
 
 			return token;
+		}
+
+		public async Task<bool> AccountExists(string username, string email)
+		{
+			return await AccountCollection.AccountExists(username, email);
 		}
 	}
 }

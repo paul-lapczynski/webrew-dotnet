@@ -10,6 +10,10 @@ namespace Webrew.Common.Interfaces
 	{
 		Task<User> Login(LoginCredentials credentials);
 
-		Task<Account> CreateAccount(CreateAccountCredentials credentials);
+		Task<User> CreateUserAccount(CreateUserAccountCredentials credentials);
+
+		string GenerateToken(User user, TimeSpan? lifetime = null);
+
+		Task<bool >AccountExists(string username, string email);
 	}
 }

@@ -27,9 +27,9 @@ namespace Webrew.Data.Collections
 			return await Accounts.FirstOrDefaultAsync(a => a.Username.ToLower() == username.ToLower());
 		}
 
-		public Task<bool> AccountExists(Account account)
+		public async Task<bool> AccountExists(string username, string email)
 		{
-			return Accounts.AnyAsync(a => string.Equals(account.Email, a.Email, StringComparison.InvariantCultureIgnoreCase) || string.Equals(account.Username, a.Username, StringComparison.InvariantCultureIgnoreCase));
+			return await Accounts.AnyAsync(a => a.Username.ToLowerInvariant() == username || a.Email.ToLowerInvariant() == email);
 		}
 	}
 }

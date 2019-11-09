@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Webrew.Common.Models
 {
-	public class CreateAccountCredentials
+	public class CreateUserAccountCredentials
 	{
 		public string Password { get; set; }
 		public string Username { get; set; }

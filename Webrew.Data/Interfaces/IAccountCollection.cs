@@ -10,5 +10,7 @@ namespace Webrew.Data.Interfaces
 	public interface IAccountCollection : IWebrewCollection<Account>
 	{
 		Task<Account> Get(string username);
+
+		Task<bool> AccountExists(string username, string email);
 	}
 }

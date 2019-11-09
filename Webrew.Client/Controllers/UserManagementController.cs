@@ -28,25 +28,32 @@ namespace webrew_dotnet.Controllers
 		[HttpPost("Login")]
 		public async Task<IActionResult> Login(LoginCredentials credentials)
 		{
-			var account = await LoginManager.Login(credentials);
+			var user = await LoginManager.Login(credentials);
 
-			if (account != null)
+			if (user != null)
 			{
-				var token = AccountManager.GenerateToken(account);
+				var token = AccountManager.GenerateToken(user);
 				return Ok(new { token });
 			}
 			else
 			{
-				return BadRequest();
+				return Unauthorized();
 			}
 		}
 
 		[HttpPost("CreateAccount")]
-		public async Task<IActionResult> CreateAccount(CreateAccountCredentials credentials)
+		public async Task<IActionResult> CreateAccount(CreateUserAccountCredentials credentials)
 		{
-			var user = await LoginManager.CreateAccount(credentials);
+			var accountExists = await LoginManager.AccountExists(credentials.Username, credentials.Email);
 
-			return Ok(user);
+			if (!accountExists)
+			{
+				 return CreatedAtAction("CreateAccount", await LoginManager.CreateUserAccount(credentials));
+			}
+			else
+			{
+				return Problem("Account Exists", statusCode: StatusCodes.Status409Conflict);
+			}
 		}
 
 		[HttpGet("LoggedIn")]
