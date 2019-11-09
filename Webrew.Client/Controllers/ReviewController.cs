@@ -3,8 +3,8 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
+using Webrew.Common.Models;
 using Webrew.Managers.Interfaces;
-using Webrew.Models.Beers;
 
 namespace webrew_dotnet.Controllers
 {

@@ -2,8 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Threading.Tasks;
-using Webrew.Interfaces.Beer;
-using Webrew.Models.Beers;
+using Webrew.Common.Models;
 
 namespace Webrew.Managers.Interfaces
 {

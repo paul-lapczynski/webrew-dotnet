@@ -21,6 +21,8 @@ namespace webrew_dotnet.Helpers.Startup
 			services.AddSingleton<IDbClient, DbClient>();
 			services.AddSingleton<IBeerCollection, BeerCollection>();
 			services.AddSingleton<IReviewCollection, ReviewCollection>();
+			services.AddSingleton<IAccountCollection, AccountCollection>();
+			services.AddSingleton<IUserCollection, UserCollection>();
 			services.AddSingleton<IBeerRepository, BeerRepository>();
 			services.AddSingleton<IReviewRepository, ReviewRepository>();
 			return services;

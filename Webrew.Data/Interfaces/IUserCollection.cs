@@ -4,12 +4,10 @@ using System.Text;
 using System.Threading.Tasks;
 using Webrew.Common.Models;
 
-namespace Webrew.Managers.Interfaces
+namespace Webrew.Data.Interfaces
 {
-	public interface IHomeManager
+	public interface IUserCollection : IWebrewCollection<User>
 	{
-		Task<Beer> AddBeer(Beer beer);
-
-		Task<List<Beer>> GetBeers();
+		Task<User> Get(string username);
 	}
 }

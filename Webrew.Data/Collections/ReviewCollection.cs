@@ -2,8 +2,8 @@ using MongoDB.Driver;
 using System;
 using System.Collections.Generic;
 using System.Text;
+using Webrew.Common.Models;
 using Webrew.Data.Interfaces;
-using Webrew.Models.Beers;
 
 namespace Webrew.Data.Collections
 {

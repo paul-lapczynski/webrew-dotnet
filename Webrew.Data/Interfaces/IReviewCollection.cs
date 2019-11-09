@@ -1,5 +1,5 @@
 using MongoDB.Driver;
-using Webrew.Models.Beers;
+using Webrew.Common.Models;
 
 namespace Webrew.Data.Interfaces
 {

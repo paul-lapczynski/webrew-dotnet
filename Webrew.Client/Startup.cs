@@ -1,4 +1,6 @@
 using System;
+using System.Text;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -9,11 +11,10 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Options;
+using Microsoft.IdentityModel.Tokens;
 using MongoDB.Bson;
 using Newtonsoft.Json;
 using Webrew.Data;
-using Webrew.Interfaces;
-using webrew_dotnet.Controllers;
 using webrew_dotnet.Helpers.Startup;
 
 namespace webrew_dotnet
@@ -44,13 +45,14 @@ namespace webrew_dotnet
 			});
 
 			EntityMapper.RegisterCollectionMappings();
-
+			services.AddSecuritySettingsSingleton(options => options.SetConfiguration(Configuration));
 			services.AddDbClient(options => options.SetConfiguration(Configuration));
 			services.AddManagers();
+			services.AddWebrewAuthentication(options => options.SetConfiguration(Configuration));
 		}
 
 		// This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-		public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
+		public void Configure(IApplicationBuilder app, IWebHostEnvironment env, IServiceProvider serviceProvider)
 		{
 			if (env.IsDevelopment())
 			{
@@ -70,8 +72,9 @@ namespace webrew_dotnet
 				app.UseSpaStaticFiles();
 			}
 
+			app.UseAuthentication();
 			app.UseRouting();
-
+			app.UseAuthorization();
 			app.UseEndpoints(endpoints =>
 			{
 				endpoints.MapControllerRoute(
