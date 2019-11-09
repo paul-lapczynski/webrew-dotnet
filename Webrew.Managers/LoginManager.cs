@@ -1,4 +1,8 @@
-﻿using System.Text;
+﻿using Microsoft.IdentityModel.Tokens;
+using System;
+using System.IdentityModel.Tokens.Jwt;
+using System.Security.Claims;
+using System.Text;
 using System.Threading.Tasks;
 using Webrew.Common.Interfaces;
 using Webrew.Common.Models;
@@ -47,6 +51,26 @@ namespace Webrew.Managers
 			}); ;
 
 			return account;
+		}
+
+		private string GenerateToken(User user, TimeSpan? lifetime = null)
+		{
+			var tokenDescriptor = new SecurityTokenDescriptor
+			{
+				Subject = new ClaimsIdentity(new Claim[]
+				{
+					new Claim("UserId", user.Id.ToString()),
+					new Claim("Email", user.Email?.ToString() ?? string.Empty)
+				}),
+				Expires = DateTime.UtcNow.AddTicks(lifetime.HasValue ? lifetime.Value.Ticks : TimeSpan.FromDays(1).Ticks),
+				SigningCredentials = new SigningCredentials(new SymmetricSecurityKey(Encoding.UTF8.GetBytes(Settings.JwtSecret)), SecurityAlgorithms.HmacSha256Signature)
+			};
+
+			var tokenHandler = new JwtSecurityTokenHandler();
+			var securityToken = tokenHandler.CreateToken(tokenDescriptor);
+			var token = tokenHandler.WriteToken(securityToken);
+
+			return token;
 		}
 	}
 }
