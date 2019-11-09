@@ -4,8 +4,7 @@ using MongoDB.Bson.Serialization.IdGenerators;
 using System;
 using System.Collections.Generic;
 using System.Text;
-using Webrew.Models;
-using Webrew.Models.Beers;
+using Webrew.Common.Models;
 
 namespace Webrew.Data
 {

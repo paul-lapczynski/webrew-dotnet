@@ -6,14 +6,7 @@ using System.Threading.Tasks;
 
 namespace webrew_dotnet.Helpers.Startup
 {
-	public class AddDbClientOptions
+	public class AddDbClientOptions : ConfigurationOptions
 	{
-		public IConfiguration Configuration { get; private set; }
-
-		public IConfiguration SetConfiguration(IConfiguration configuration)
-		{
-			Configuration = configuration;
-			return Configuration;
-		}
 	}
 }
