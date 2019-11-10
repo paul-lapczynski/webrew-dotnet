@@ -4,6 +4,8 @@ using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
+using Microsoft.AspNetCore.Mvc.ModelBinding;
+using Microsoft.AspNetCore.Mvc.ModelBinding.Binders;
 using Microsoft.AspNetCore.SpaServices.AngularCli;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -29,10 +31,13 @@ namespace webrew_dotnet
 		// This method gets called by the runtime. Use this method to add services to the container.
 		public void ConfigureServices(IServiceCollection services)
 		{
-			services.AddControllersWithViews().AddNewtonsoftJson(options =>
+			services.AddControllersWithViews(options =>
 			{
-				options.SerializerSettings.Converters.Add(new ObjectIdConverter());
-			});
+				options.ModelBinderProviders.Insert(0, new ObjectIdEntityProvider());
+			}).AddNewtonsoftJson(options =>
+					 {
+						 options.SerializerSettings.Converters.Add(new ObjectIdConverter());
+					 });
 			// In production, the Angular files will be served from this directory
 			services.AddSpaStaticFiles(configuration =>
 			{

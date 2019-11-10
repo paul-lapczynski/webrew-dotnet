@@ -5,7 +5,6 @@ using System;
 using Webrew.Data;
 using Webrew.Data.Collections;
 using Webrew.Data.Interfaces;
-using Webrew.Data.Repositories;
 
 namespace webrew_dotnet.Helpers.Startup
 {
@@ -20,9 +19,9 @@ namespace webrew_dotnet.Helpers.Startup
 			services.AddSingleton<IDbClientOptions>(sp => sp.GetRequiredService<IOptions<DbClientOptions>>().Value);
 			services.AddSingleton<IDbClient, DbClient>();
 			services.AddSingleton<IBeerCollection, BeerCollection>();
+			services.AddSingleton<IReviewCollection, ReviewCollection>();
 			services.AddSingleton<IAccountCollection, AccountCollection>();
 			services.AddSingleton<IUserCollection, UserCollection>();
-			services.AddSingleton<IBeerRepository, BeerRepository>();
 			return services;
 		}
 	}
