@@ -11,7 +11,7 @@ namespace Webrew.Managers.Interfaces
 	{
 		Task<Beer> GetBeer(ObjectId id);
 
-        Task<Beer> UpdateBeer(ObjectId id, Beer beer);
+        Task<bool> UpdateBeer(ObjectId id, Beer beer);
 		
 		Task<bool> RemoveBeer(ObjectId id);
 	}

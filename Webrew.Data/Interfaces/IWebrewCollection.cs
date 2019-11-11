@@ -16,5 +16,6 @@ namespace Webrew.Data.Interfaces
 		Task<T> GetAsync(ObjectId id);
 		Task<List<T>> GetListAsync(Expression<Func<T, bool>> predecate);
 		Task<bool> RemoveAsync(ObjectId id);
+        Task<bool> UpdateAsync(ObjectId id, T item);
 	}
 }
