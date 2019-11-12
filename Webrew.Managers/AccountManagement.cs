@@ -27,7 +27,7 @@ namespace Webrew.Managers
 					new Claim("Email", user.Email?.ToString() ?? string.Empty)
 				}),
 				Expires = DateTime.UtcNow.AddTicks(lifetime.HasValue ? lifetime.Value.Ticks : TimeSpan.FromDays(1).Ticks),
-				SigningCredentials = new SigningCredentials(new SymmetricSecurityKey(Encoding.UTF8.GetBytes(Settings.JwtSecret)), SecurityAlgorithms.HmacSha256Signature)
+				SigningCredentials = new SigningCredentials(new SymmetricSecurityKey(Encoding.UTF8.GetBytes(Settings.JwtSecret)), SecurityAlgorithms.HmacSha256Signature),
 			};
 
 			var tokenHandler = new JwtSecurityTokenHandler();
@@ -36,5 +36,7 @@ namespace Webrew.Managers
 
 			return token;
 		}
+
+
 	}
 }
