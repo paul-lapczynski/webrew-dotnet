@@ -1,0 +1,24 @@
+:host {
+    display: inline-block;
+    height: 50px;
+    width: 50px;
+    position: relative;
+}
+
+.left-part {
+    position: absolute;
+    top: -1px;
+    right: 25px;
+    bottom: -1px;
+    user-select: none;
+    left: -1px;
+}
+
+.right-part {
+    position: absolute;
+    top: -1px;
+    right: -1px;
+    bottom: -1px;
+    user-select: none;
+    left: 25px;
+}

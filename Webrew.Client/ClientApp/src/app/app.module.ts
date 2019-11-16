@@ -10,7 +10,6 @@ import { FetchDataComponent } from './fetch-data/fetch-data.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatCardModule, MatButtonModule, MatInputModule, MatCheckboxModule, MatSidenavModule } from '@angular/material';
 import { NavBarModule } from './nav-bar/nav-bar.module';
-
 @NgModule({
     declarations: [AppComponent, CounterComponent, FetchDataComponent],
     imports: [
