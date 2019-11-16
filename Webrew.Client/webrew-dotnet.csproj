@@ -43,9 +43,19 @@
   </ItemGroup>
 
   <ItemGroup>
+    <None Remove="ClientApp\src\app\services\beer.service.ts" />
+    <None Remove="ClientApp\src\app\shared\models\beer.ts" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\Webrew.Data\Webrew.Data.csproj" />
     <ProjectReference Include="..\Webrew.Interfaces\Webrew.Common.csproj" />
     <ProjectReference Include="..\Webrew.Managers\Webrew.Managers.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <TypeScriptCompile Include="ClientApp\src\app\services\beer.service.ts" />
+    <TypeScriptCompile Include="ClientApp\src\app\shared\models\Beer.ts" />
   </ItemGroup>
 
   <Target Name="DebugEnsureNodeEnv" BeforeTargets="Build" Condition=" '$(Configuration)' == 'Debug' And !Exists('$(SpaRoot)node_modules') ">

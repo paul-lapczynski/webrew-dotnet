@@ -1,13 +1,26 @@
 <mat-card>
 	<mat-card-header>
-		<h3 mat-card-title>Dunkelweizen</h3>
+    
 	</mat-card-header>
 	<div mat-card-subtitle
 		class="image-container">
 		<img class="image"
-			src="https://s3.amazonaws.com/cdn.greatfermentations.com/images/popup/bka042_dunkelweizen_extract_kit.jpg" />
+			src="{{ beer.imageURL }}" />
 	</div>
-	<mat-card-content>
-
-	</mat-card-content>
+  <mat-card-content>
+    <h3 mat-card-title>{{ beer.name }}</h3>
+    <p mat-card-company>{{ beer.company }}</p>
+    <hr />
+    <div mat-card-style class="float-left">Style: {{ beer.style }}</div>
+    <div mat-card-avgrating class="float-right">Avg Rating: {{ beer.avgRating }}</div>
+    <div mat-card-abv class="float-center">ABV: {{ beer.abv }}%</div>
+    <div>
+      <p mat-card-desc>{{ beer.description }}</p>
+    </div>
+    <div>
+      <p mat-card-footer style="text-align:right">
+        Added {{ beer.createdDate  | date: "longDate"}} by <a href="/mebrew/{{ beer.createdByUser }}" class="">{{ beer.createdByUser }}</a>
+      </p>
+    </div>
+  </mat-card-content>
 </mat-card>

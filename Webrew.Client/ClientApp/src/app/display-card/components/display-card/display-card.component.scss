@@ -4,5 +4,16 @@
     place-content: center;
 }
 .image {
-    max-width: 65%;
+    max-width: 300px;
+    max-width: 230px;
+}
+.float-left {
+    float:left;
+}
+.float-right {
+  float:right;
+}
+.float-center {
+  margin: 0 auto;
+  width: 100px;
 }
