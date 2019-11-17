@@ -2,7 +2,8 @@ import { RouterModule, Route } from '@angular/router';
 import { BrowseComponent } from './components/browse/browse.component';
 import { NgModule } from '@angular/core';
 
-const routes: Route[] = [{ path: 'browse', component: BrowseComponent }];
+const routes: Route[] = [{ path: '', component: BrowseComponent }];
+
 @NgModule({
     imports: [RouterModule.forChild(routes)]
 })

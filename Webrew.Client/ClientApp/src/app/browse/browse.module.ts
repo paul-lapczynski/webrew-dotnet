@@ -12,4 +12,4 @@ import { BeersService } from "../services/beer.service";
     imports: [CommonModule, BrowseRoutingModule, DisplayCardModule, FlexLayoutModule, HttpClientModule],
     providers: [BeersService]
 })
-export class BrowseModule {}
+export class BrowseModule { }
