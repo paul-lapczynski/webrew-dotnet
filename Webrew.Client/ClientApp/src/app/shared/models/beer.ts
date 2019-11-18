@@ -4,6 +4,7 @@ export class Beer
     name: string;
     style: string;
     abv: number;
+    suggestedGlass: string;
     avgRating: number;
     description: string;
     imageURL: string;

@@ -1,26 +1,25 @@
-<mat-card>
-	<mat-card-header>
-    
-	</mat-card-header>
-	<div mat-card-subtitle
-		class="image-container">
-		<img class="image"
-			src="{{ beer.imageURL }}" />
-	</div>
+<mat-card class="standard-card">
+    <mat-card-header >
+      <mat-card-title>{{ beer.name }}</mat-card-title>
+      <mat-card-subtitle>{{ beer.company }}</mat-card-subtitle>
+    </mat-card-header>
+    <a href="/beer/{{beer.id}}">
+      <img class="card-image" src="{{ beer.imageURL }}" alt="Photo of {{ beer.name }}" >
+    </a>
   <mat-card-content>
-    <h3 mat-card-title>{{ beer.name }}</h3>
-    <p mat-card-company>{{ beer.company }}</p>
     <hr />
     <div mat-card-style class="float-left">Style: {{ beer.style }}</div>
     <div mat-card-avgrating class="float-right">Avg Rating: {{ beer.avgRating }}</div>
     <div mat-card-abv class="float-center">ABV: {{ beer.abv }}%</div>
+    <hr />
     <div>
       <p mat-card-desc>{{ beer.description }}</p>
-    </div>
-    <div>
-      <p mat-card-footer style="text-align:right">
-        Added {{ beer.createdDate  | date: "longDate"}} by <a href="/mebrew/{{ beer.createdByUser }}" class="">{{ beer.createdByUser }}</a>
-      </p>
+      <p mat-card-desc>Suggested Glass: {{ beer.suggestedGlass }}</p>
     </div>
   </mat-card-content>
+  <mat-card-footer class="footer">
+    <p>
+      Added {{ beer.createdDate  | date: "longDate"}} by <a href="/userprofile/{{ beer.createdByUser }}" class="">{{ beer.createdByUser }}</a>
+    </p>
+  </mat-card-footer>
 </mat-card>
