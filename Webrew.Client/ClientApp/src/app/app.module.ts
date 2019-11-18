@@ -18,6 +18,12 @@ import { NavBarModule } from './nav-bar/nav-bar.module';
         RouterModule.forRoot([
             { path: 'home', loadChildren: () => import('./home/home.module').then(m => m.HomeModule) },
             { path: 'browse', loadChildren: () => import('./browse/browse.module').then(m => m.BrowseModule) },
+            { path: 'new', loadChildren: () => import('./new/new.module').then(m => m.NewModule) },
+            { path: 'chat', loadChildren: () => import('./chat/chat.module').then(m => m.ChatModule) },
+            { path: 'about', loadChildren: () => import('./about/about.module').then(m => m.AboutModule) },
+            { path: 'userprofile', loadChildren: () => import('./userprofile/userprofile.module').then(m => m.UserprofileModule) },
+            { path: 'login', loadChildren: () => import('./login/login.module').then(m => m.LoginModule) },
+            { path: 'beer', loadChildren: () => import('./beer/beer.module').then(m => m.BeerModule) },
             { path: '', redirectTo: 'home', pathMatch: 'full' },
             { path: '**', redirectTo: 'home' }
         ]),

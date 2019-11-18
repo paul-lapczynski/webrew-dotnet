@@ -1,5 +1,5 @@
 export class Beer
-    {
+{
     company: string;
     name: string;
     style: string;

@@ -8,4 +8,10 @@ export class BeersService {
     fetchBeers(): Observable<Object> {
         return this.http.get('/api/Home/');
     }
+    fetchBeer(beerId): Observable<Object> {
+        return this.http.get('/api/Beer?id=' + beerId);
+    }
+    fetchReviews(beerId): Observable<Object> {
+        return this.http.get('/api/Review?beerId=' + beerId);
+    }
 }

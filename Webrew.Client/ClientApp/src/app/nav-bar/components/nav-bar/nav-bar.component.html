@@ -1,15 +1,36 @@
 <mat-toolbar color="accent">
-	<img mat-toolbar-row
-		src="assets/webrew.png"
-		height="36px" />
+	<a href="/home">
+		<img mat-toolbar-row src="assets/webrew.png" height="36px" />
+	</a>	
 	<div fxFlex="auto"></div>
-	<button mat-icon-button>
-		<mat-icon>add</mat-icon>
-	</button>
-	<button mat-icon-button>
-		<mat-icon>search</mat-icon>
-	</button>
-	<button mat-icon-button>
-		<mat-icon>message</mat-icon>
-	</button>
+	<a href="/browse" mat-icon-button>
+		<button mat-icon-button>
+			<mat-icon>search</mat-icon>
+		</button>
+	</a>
+	<a href="/new" mat-icon-button>
+		<button mat-icon-button>
+			<mat-icon>add</mat-icon>
+		</button>
+	</a>
+	<a href="/chat" mat-icon-button>
+		<button mat-icon-button>
+			<mat-icon>message</mat-icon>
+		</button>
+	</a>
+	<a href="/about" mat-icon-button>
+		<button mat-icon-button>
+			<mat-icon>contacts</mat-icon>
+		</button>
+	</a>
+	<a href="/userprofile" mat-icon-button>
+		<button mat-icon-button>
+			<mat-icon>person</mat-icon>
+		</button>
+	</a>
+	<a href="/login" mat-icon-button>
+		<button mat-icon-button>
+			<mat-icon>settings</mat-icon>
+		</button>
+	</a>
 </mat-toolbar>
