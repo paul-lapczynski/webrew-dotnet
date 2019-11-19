@@ -11,6 +11,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Webrew.Managers", "Webrew.M
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Webrew.Common", "Webrew.Interfaces\Webrew.Common.csproj", "{0335DB61-E047-416E-960C-5831FBB1823E}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Webrew.Managers.Tests", "Webrew.Tests\Webrew.Managers.Tests.csproj", "{2CBBF0D9-0709-4F37-B464-23A29CB5D970}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -69,6 +71,18 @@ Global
 		{0335DB61-E047-416E-960C-5831FBB1823E}.Release|x64.Build.0 = Release|Any CPU
 		{0335DB61-E047-416E-960C-5831FBB1823E}.Release|x86.ActiveCfg = Release|Any CPU
 		{0335DB61-E047-416E-960C-5831FBB1823E}.Release|x86.Build.0 = Release|Any CPU
+		{2CBBF0D9-0709-4F37-B464-23A29CB5D970}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2CBBF0D9-0709-4F37-B464-23A29CB5D970}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2CBBF0D9-0709-4F37-B464-23A29CB5D970}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{2CBBF0D9-0709-4F37-B464-23A29CB5D970}.Debug|x64.Build.0 = Debug|Any CPU
+		{2CBBF0D9-0709-4F37-B464-23A29CB5D970}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{2CBBF0D9-0709-4F37-B464-23A29CB5D970}.Debug|x86.Build.0 = Debug|Any CPU
+		{2CBBF0D9-0709-4F37-B464-23A29CB5D970}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2CBBF0D9-0709-4F37-B464-23A29CB5D970}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2CBBF0D9-0709-4F37-B464-23A29CB5D970}.Release|x64.ActiveCfg = Release|Any CPU
+		{2CBBF0D9-0709-4F37-B464-23A29CB5D970}.Release|x64.Build.0 = Release|Any CPU
+		{2CBBF0D9-0709-4F37-B464-23A29CB5D970}.Release|x86.ActiveCfg = Release|Any CPU
+		{2CBBF0D9-0709-4F37-B464-23A29CB5D970}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

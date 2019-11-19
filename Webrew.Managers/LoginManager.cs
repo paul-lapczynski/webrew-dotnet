@@ -27,7 +27,7 @@ namespace Webrew.Managers
 		public async Task<User> Login(LoginCredentials credentials)
 		{
 			var account = await AccountCollection.Get(credentials.Username);
-			var passwordsMath = WebrewHasher.VerifyPasswordMath(credentials.Password, account.Password, SecuritySettings.PasswordHashSecret, account.Salt);
+			var passwordsMath = WebrewHasher.Instance.VerifyPasswordMatch(credentials.Password, account.Password, SecuritySettings.PasswordHashSecret, account.Salt);
 
 			if (passwordsMath)
 			{
@@ -39,8 +39,8 @@ namespace Webrew.Managers
 
 		public async Task<User> CreateUserAccount(CreateUserAccountCredentials credentials)
 		{
-			var salt = new byte[32];
-			var hashword = WebrewHasher.HashPassword(credentials.Password, SecuritySettings.PasswordHashSecret, salt);
+			var salt = WebrewHasher.Instance.GetRandomSalt(32);
+			var hashword = WebrewHasher.Instance.HashPassword(credentials.Password, SecuritySettings.PasswordHashSecret, salt);
 
 			var account = await AccountCollection.Add(new Account
 			{
