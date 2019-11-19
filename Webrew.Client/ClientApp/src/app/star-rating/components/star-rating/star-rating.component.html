@@ -1,0 +1,6 @@
+  	<star *ngFor="let star of stars"
+  		[fill]="getStartFill(star)"
+  		[position]="star"
+  		[starSize]="starSize"
+  		(ratingSet)="setValue($event)"
+  		(starMouseOver)="onStarMouseOver($event)"></star>
