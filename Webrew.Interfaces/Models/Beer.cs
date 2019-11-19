@@ -11,6 +11,7 @@ namespace Webrew.Common.Models
 		public string Name { get; set; }
 		public string Style { get; set; }
 		public float ABV { get; set; }
+		public string SuggestedGlass { get; set; }
 		public float AvgRating { get; set; }
 		public string Description { get; set; }
 		public string ImageURL { get; set; }

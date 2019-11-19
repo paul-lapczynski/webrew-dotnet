@@ -28,15 +28,15 @@ namespace Webrew.Managers
 		{
 			return await Collection.AddAsync(review);
 		}
-		
-  //      public async Task<Review> UpdateReview(ObjectId id, Review review)
-		//{
-		//	return await Collection.UpdateReview(id, review);
-		//}
-        
+
+        public async Task<bool> UpdateReview(ObjectId id, Review review)
+        {
+            return await Collection.UpdateAsync(id, review);
+        }
+
         public async Task<bool> RemoveReview(ObjectId id)
 		{
 			return await Collection.RemoveAsync(id);
 		}
-	}
+    }
 }

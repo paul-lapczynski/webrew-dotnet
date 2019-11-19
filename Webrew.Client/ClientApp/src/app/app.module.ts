@@ -5,20 +5,19 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
 
 import { AppComponent } from './app.component';
-import { CounterComponent } from './counter/counter.component';
-import { FetchDataComponent } from './fetch-data/fetch-data.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatCardModule, MatButtonModule, MatInputModule, MatCheckboxModule, MatSidenavModule } from '@angular/material';
 import { NavBarModule } from './nav-bar/nav-bar.module';
 
 @NgModule({
-    declarations: [AppComponent, CounterComponent, FetchDataComponent],
+    declarations: [AppComponent],
     imports: [
         BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
         HttpClientModule,
         FormsModule,
         RouterModule.forRoot([
             { path: 'home', loadChildren: () => import('./home/home.module').then(m => m.HomeModule) },
+            { path: 'browse', loadChildren: () => import('./browse/browse.module').then(m => m.BrowseModule) },
             { path: '', redirectTo: 'home', pathMatch: 'full' },
             { path: '**', redirectTo: 'home' }
         ]),

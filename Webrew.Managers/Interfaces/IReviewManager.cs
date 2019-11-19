@@ -13,7 +13,7 @@ namespace Webrew.Managers.Interfaces
         
         Task<Review> AddReview(Review review);
 
-        //Task<Review> UpdateReview(ObjectId id, Review review);
+        Task<bool> UpdateReview(ObjectId id, Review review);
 
         Task<bool> RemoveReview(ObjectId id);
 	}

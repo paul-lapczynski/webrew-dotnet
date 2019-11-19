@@ -45,7 +45,20 @@ namespace Webrew.Data.Collections
 			}
 		}
 
-		public async Task<T> GetAsync(ObjectId id)
+        public async Task<bool> UpdateAsync(ObjectId id, T item)
+        {
+            try
+            {
+                await Collection.FindOneAndReplaceAsync(c => c.Id == id, item);
+                return true;
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+        }
+
+        public async Task<T> GetAsync(ObjectId id)
 		{
 			return await Collection.AsQueryable().FirstOrDefaultAsync(d => d.Id == id);
 		}
