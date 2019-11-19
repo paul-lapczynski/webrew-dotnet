@@ -37,6 +37,9 @@ export class StarComponent implements OnInit, OnChanges {
     @Output()
     ratingSet = new EventEmitter<number>();
 
+    @Input()
+    starSize = 24;
+
     icon$: BehaviorSubject<StarIcon> = new BehaviorSubject<StarIcon>('star_border');
 
     constructor(private cd: ChangeDetectorRef) {}

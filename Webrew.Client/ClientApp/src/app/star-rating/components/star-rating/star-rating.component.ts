@@ -1,17 +1,6 @@
-import {
-    Component,
-    OnInit,
-    HostListener,
-    ElementRef,
-    Renderer2,
-    ChangeDetectorRef,
-    Provider,
-    forwardRef
-} from '@angular/core';
+import { Component, OnInit, HostListener, forwardRef, Input, OnChanges, SimpleChanges } from '@angular/core';
 import { StarFill } from '../../models/StarFill';
-import { BehaviorSubject } from 'rxjs';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
-import { MAT_CHECKBOX_CONTROL_VALUE_ACCESSOR } from '@angular/material';
 
 @Component({
     selector: 'star-rating',
@@ -20,6 +9,12 @@ import { MAT_CHECKBOX_CONTROL_VALUE_ACCESSOR } from '@angular/material';
     providers: [{ provide: NG_VALUE_ACCESSOR, useExisting: forwardRef(() => StarRatingComponent), multi: true }]
 })
 export class StarRatingComponent implements OnInit, ControlValueAccessor {
+    @Input()
+    starSize = 24;
+
+    @Input()
+    disabled = false;
+
     fill = StarFill;
     stars = [1, 2, 3, 4, 5];
     rating = 0;
@@ -34,6 +29,9 @@ export class StarRatingComponent implements OnInit, ControlValueAccessor {
     ngOnInit() {}
 
     setValue(value: number) {
+        if (this.disabled) {
+            return;
+        }
         this.rating = value;
 
         if (this.onChange) {
@@ -43,7 +41,9 @@ export class StarRatingComponent implements OnInit, ControlValueAccessor {
 
     @HostListener('mousemove')
     onMouseEnter() {
-        console.log('entering rating');
+        if (this.disabled) {
+            return;
+        }
 
         if (!this.hovering) {
             this.hoverRating = 0;
@@ -53,21 +53,23 @@ export class StarRatingComponent implements OnInit, ControlValueAccessor {
 
     @HostListener('mouseleave')
     onMouseOut() {
+        if (this.disabled) {
+            return;
+        }
         this.hovering = false;
         this.hoverRating = null;
     }
 
     onStarMouseOver(position: number) {
+        if (this.disabled) {
+            return;
+        }
         this.hovering = true;
         this.hoverRating = position;
     }
 
     getStartFill(star: number) {
         const currentRating = this.hovering ? this.hoverRating : this.rating;
-        // if (!this.hovering) {
-        //     const actualyGt = star > this.rating;
-        //     return actualyGt ? this.fill.empty : this.fill.full;
-        // }
 
         const gt = star > currentRating;
         if (gt) {
@@ -87,11 +89,16 @@ export class StarRatingComponent implements OnInit, ControlValueAccessor {
     writeValue(obj: any): void {
         this.setValue(Math.round(obj * 2) / 2);
     }
+
     registerOnChange(fn: any): void {
         this.onChange = fn;
     }
+
     registerOnTouched(fn: any): void {
         this.onTouched = fn;
     }
-    setDisabledState?(isDisabled: boolean): void {}
+
+    setDisabledState?(isDisabled: boolean): void {
+        this.disabled = isDisabled;
+    }
 }

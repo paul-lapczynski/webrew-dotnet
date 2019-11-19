@@ -7,7 +7,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
     declarations: [StarComponent, StarRatingComponent],
-    imports: [CommonModule, MatIconModule, MatRippleModule, BrowserAnimationsModule],
+    imports: [CommonModule, MatIconModule, MatRippleModule],
     exports: [StarRatingComponent]
 })
 export class StarRatingModule {}

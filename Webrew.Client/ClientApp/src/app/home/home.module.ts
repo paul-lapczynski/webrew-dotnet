@@ -9,13 +9,6 @@ import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
     declarations: [HomeComponent],
-    imports: [
-        CommonModule,
-        HomeRoutingModule,
-        DisplayCardModule,
-        FlexLayoutModule,
-        StarRatingModule,
-        ReactiveFormsModule
-    ]
+    imports: [CommonModule, HomeRoutingModule, DisplayCardModule, FlexLayoutModule, ReactiveFormsModule]
 })
 export class HomeModule {}
