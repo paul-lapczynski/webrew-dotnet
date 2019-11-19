@@ -24,25 +24,14 @@ namespace Webrew.Managers
 			return await Collection.GetAsync(id);
 		}
 
-		public async Task<bool> RemoveBeer(ObjectId id)
+        public async Task<bool> UpdateBeer(ObjectId id, Beer beer)
 		{
-			return await Collection.RemoveAsync(id);
+			return await Collection.UpdateAsync(id, beer);
 		}
 
-		public Task<Beer> UpdateBeer(ObjectId id, Beer beer)
-		{
-			throw new NotImplementedException();
-		}
-
-		//public async Task<Beer> UpdateBeer(string id, Beer beer)
-		//{
-		//	return await Repository.UpdateBeer(Id, beer).ToListAsync();
-		//}
-
-		//public async Task<Beer> RemoveBeer(string id)
-		//{
-		//	return Repository.RemoveBeer(Id);
-		//}
-
-	}
+        public async Task<bool> RemoveBeer(ObjectId id)
+        {
+            return await Collection.RemoveAsync(id);
+        }
+    }
 }

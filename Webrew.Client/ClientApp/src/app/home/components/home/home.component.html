@@ -1,10 +1,11 @@
-<div [formGroup]="form">
-	<div fxLayout="row layout-wrap"
-		[fxLayoutAlign.gt-md]="'start space-between'"
-		[fxLayoutAlign.lt-lg]="'center'"
-		[fxLayoutGap]="'8px grid'">
-		<display-card *ngFor="let g of [1,2,3,4]"
-			[fxFlex.xs]="'436px'"
-			[fxFlex.gt-xs]="'436px'"></display-card>
-	</div>
+<div fxLayout="row layout-wrap"
+	[fxLayoutAlign.gt-md]="'start space-between'"
+	[fxLayoutAlign.lt-lg]="'center'"
+	[fxLayoutGap]="'8px grid'">
+
+	<display-card *ngFor="let beer of beers$ | async"
+		[beer]="beer"
+		[fxFlex.xs]="'436px'"
+		[fxFlex.gt-xs]="'436px'"></display-card>
+
 </div>
