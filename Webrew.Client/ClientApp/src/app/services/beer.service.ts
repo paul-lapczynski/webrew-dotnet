@@ -7,8 +7,8 @@ import { Review } from '../shared/models/review';
 @Injectable()
 export class BeersService {
     constructor(private http: HttpClient) {}
-    fetchBeers(): Observable<Object> {
-        return this.http.get('/api/Home/');
+    fetchBeers(): Observable<Beer[]> {
+        return this.http.get<Beer[]>('/api/Home/');
     }
     fetchBeer(beerId): Observable<Beer[]> {
         return this.http.get<Beer[]>('/api/Beer?id=' + beerId);

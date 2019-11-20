@@ -3,7 +3,7 @@
 		<mat-card-title>{{ beer.name }}</mat-card-title>
 		<mat-card-subtitle>{{ beer.company }}</mat-card-subtitle>
 	</mat-card-header>
-	<a [routerLink]="['/beer', beer.id]">
+	<a href="#" [routerLink]="['/beer', beer.id]">
 		<img class="card-image"
 			src="{{ beer.imageURL }}"
 			alt="Photo of {{ beer.name }}">
@@ -24,7 +24,7 @@
 	</mat-card-content>
 	<mat-card-footer class="footer">
 		<p>
-			Added {{ beer.createdDate  | date: "longDate"}} by <a [routerLink]="['userprofile' + '/' + beer.createdByUser]">{{ beer.createdByUser }}</a>
+			Added {{ beer.createdDate  | date: "longDate"}} by <a [routerLink]="['/userprofile', beer.createdByUser]">{{ beer.createdByUser }}</a>
 		</p>
 	</mat-card-footer>
 </mat-card>
