@@ -1,25 +1,31 @@
 <mat-card class="standard-card">
-    <mat-card-header >
-      <mat-card-title>{{ beer.name }}</mat-card-title>
-      <mat-card-subtitle>{{ beer.company }}</mat-card-subtitle>
-    </mat-card-header>
-    <a href="/beer/{{beer.id}}">
-      <img class="card-image" src="{{ beer.imageURL }}" alt="Photo of {{ beer.name }}" >
-    </a>
-  <mat-card-content>
-    <hr />
-    <div mat-card-style class="float-left">Style: {{ beer.style }}</div>
-    <div mat-card-avgrating class="float-right">Avg Rating: {{ beer.avgRating }}</div>
-    <div mat-card-abv class="float-center">ABV: {{ beer.abv }}%</div>
-    <hr />
-    <div>
-      <p mat-card-desc>{{ beer.description }}</p>
-      <p mat-card-desc>Suggested Glass: {{ beer.suggestedGlass }}</p>
-    </div>
-  </mat-card-content>
-  <mat-card-footer class="footer">
-    <p>
-      Added {{ beer.createdDate  | date: "longDate"}} by <a href="/userprofile/{{ beer.createdByUser }}" class="">{{ beer.createdByUser }}</a>
-    </p>
-  </mat-card-footer>
+	<mat-card-header>
+		<mat-card-title>{{ beer.name }}</mat-card-title>
+		<mat-card-subtitle>{{ beer.company }}</mat-card-subtitle>
+	</mat-card-header>
+	<a [routerLink]="['beer', beer.id]">
+		<img class="card-image"
+			src="{{ beer.imageURL }}"
+			alt="Photo of {{ beer.name }}">
+	</a>
+	<mat-card-content>
+		<hr />
+		<div mat-card-style
+			class="float-left">Style: {{ beer.style }}</div>
+		<div mat-card-avgrating
+			class="float-right">Avg Rating: {{ beer.avgRating }}</div>
+		<div mat-card-abv
+			class="float-center">ABV: {{ beer.abv }}%</div>
+		<hr />
+		<div>
+			<p mat-card-desc>{{ beer.description }}</p>
+			<p mat-card-desc>Suggested Glass: {{ beer.suggestedGlass }}</p>
+		</div>
+	</mat-card-content>
+	<mat-card-footer class="footer">
+		<p>
+			Added {{ beer.createdDate  | date: "longDate"}} by <a href="/userprofile/{{ beer.createdByUser }}"
+				[routerLink]="['userprofile' + '/' + beer.createdByUser]">{{ beer.createdByUser }}</a>
+		</p>
+	</mat-card-footer>
 </mat-card>
