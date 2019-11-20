@@ -1,0 +1,10 @@
+  <mat-icon [ngStyle]="{'width.px': starSize, 'height.px': starSize, 'fontSize.px': starSize}"
+  	color="primary">{{icon$ | async}}</mat-icon>
+  <div (mouseover)="onMouseOver(position - .5)"
+  	[ngStyle]="{'right.px': starSize / 2}"
+  	(click)="onClick(position - .5)"
+  	class="left-part"></div>
+  <div (mouseover)="onMouseOver(position)"
+  	[ngStyle]="{'left.px': starSize / 2}"
+  	(click)="onClick(position)"
+  	class="right-part"></div>
