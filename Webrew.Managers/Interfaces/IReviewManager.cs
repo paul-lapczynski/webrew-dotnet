@@ -9,7 +9,7 @@ namespace Webrew.Managers.Interfaces
 {
 	public interface IReviewManager
 	{
-		Task<List<Review>> GetReviews();
+		Task<List<Review>> GetReviews(string beerId);
         
         Task<Review> AddReview(Review review);
 

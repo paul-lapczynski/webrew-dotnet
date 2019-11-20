@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { BeersService } from 'src/app/services/beer.service';
+import { Observable } from 'rxjs';
+import { Beer } from 'src/app/shared/models/beer';
 
 @Component({
     selector: 'browse',
@@ -9,7 +11,8 @@ import { BeersService } from 'src/app/services/beer.service';
 export class BrowseComponent implements OnInit {
     constructor(private beersService: BeersService) {}
 
-    beers$;
+    beers$: Observable<Beer[]>;
+
     isDataAvailable: boolean = false;
 
     fetchBeers() {

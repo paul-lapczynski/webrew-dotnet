@@ -19,9 +19,9 @@ namespace Webrew.Managers
 			Collection = collection;
 		}
 
-		public async Task<List<Review>> GetReviews()
+		public async Task<List<Review>> GetReviews(string beerId)
 		{
-			return await Collection.GetListAsync(r => true);
+			return await Collection.GetListAsync(r => r.BeerId == beerId);
 		}
 
 		public async Task<Review> AddReview(Review review)

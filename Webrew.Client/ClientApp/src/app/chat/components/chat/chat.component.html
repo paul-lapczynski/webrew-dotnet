@@ -1,0 +1,8 @@
+<div>
+  <h1>Chat Page</h1>
+</div>
+
+<div *ngFor="let chat of chats$ | async">
+  <p>Chat: {{ chat.id }}</p>
+</div>
+

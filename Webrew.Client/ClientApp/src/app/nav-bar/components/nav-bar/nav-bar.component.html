@@ -1,15 +1,44 @@
 <mat-toolbar color="accent">
-	<img mat-toolbar-row
-		src="assets/webrew.png"
-		height="36px" />
+	<a [routerLink]="['home']">
+		<img mat-toolbar-row
+			src="assets/webrew.png"
+			height="36px" />
+	</a>
 	<div fxFlex="auto"></div>
-	<button mat-icon-button>
-		<mat-icon>add</mat-icon>
-	</button>
-	<button mat-icon-button>
-		<mat-icon>search</mat-icon>
-	</button>
-	<button mat-icon-button>
-		<mat-icon>message</mat-icon>
-	</button>
+	<a [routerLink]="['browse']"
+		mat-icon-button>
+		<button mat-icon-button>
+			<mat-icon>search</mat-icon>
+		</button>
+	</a>
+	<a [routerLink]="['new']"
+		mat-icon-button>
+		<button mat-icon-button>
+			<mat-icon>add</mat-icon>
+		</button>
+	</a>
+	<a [routerLink]="['chat']"
+		mat-icon-button>
+		<button mat-icon-button>
+			<mat-icon>message</mat-icon>
+		</button>
+	</a>
+	<a [routerLink]="['about']"
+		mat-icon-button>
+		<button mat-icon-button>
+			<mat-icon>contacts</mat-icon>
+		</button>
+	</a>
+	<a [routerLink]="['userprofile']"
+		mat-icon-button>
+		<button mat-icon-button>
+			<mat-icon>person</mat-icon>
+		</button>
+	</a>
+	<a [routerLink]="['login']"
+		mat-icon-button>
+		<button mat-icon-button>
+			<mat-icon>settings</mat-icon>
+		</button>
+	</a>
 </mat-toolbar>

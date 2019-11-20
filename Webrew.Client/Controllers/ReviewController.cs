@@ -19,10 +19,10 @@ namespace webrew_dotnet.Controllers
             _logger = logger;
         }
 
-        [HttpGet]
-        public async Task<IActionResult> GetReviews()
+        [HttpGet()]
+        public async Task<IActionResult> GetReviews(string beerId)
         {
-			var reviews = await Manager.GetReviews();
+             var reviews = await Manager.GetReviews(beerId);
             return Ok(reviews);
         }
 
