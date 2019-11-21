@@ -9,11 +9,9 @@ import { Beer } from 'src/app/shared/models/beer';
     styleUrls: ['./browse.component.scss']
 })
 export class BrowseComponent implements OnInit {
-    constructor(private beersService: BeersService) {}
-
     beers$: Observable<Beer[]>;
-
-    isDataAvailable: boolean = false;
+    
+    constructor(private beersService: BeersService) {}    
 
     fetchBeers() {
         this.beers$ = this.beersService.fetchBeers();

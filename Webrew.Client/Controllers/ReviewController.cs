@@ -19,10 +19,10 @@ namespace webrew_dotnet.Controllers
             _logger = logger;
         }
 
-        [HttpGet()]
+        [HttpGet("{beerId}")]
         public async Task<IActionResult> GetReviews(string beerId)
         {
-             var reviews = await Manager.GetReviews(beerId);
+            var reviews = await Manager.GetReviews(beerId);
             return Ok(reviews);
         }
 
@@ -35,14 +35,14 @@ namespace webrew_dotnet.Controllers
 		}
 
         [HttpPost("update/{id}")]
-        public async Task<IActionResult> UpdateReview([FromRoute] ObjectId id, Review review)
+        public async Task<IActionResult> UpdateReview([FromRouteAttribute] ObjectId id, [FromBodyAttribute] Review review)
         {
             var result = await Manager.UpdateReview(id, review);
 
             return Created(ControllerContext.HttpContext.Request.Host.ToUriComponent(), result);
         }
 
-        [HttpPost("remove")]
+        [HttpPost("remove/{id}")]
 		public async Task<IActionResult> RemoveReview(ObjectId id)
 		{
 			var result = await Manager.RemoveReview(id);

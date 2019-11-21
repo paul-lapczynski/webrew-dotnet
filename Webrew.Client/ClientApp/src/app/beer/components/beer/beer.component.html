@@ -2,7 +2,8 @@
   <h1>Beer Page</h1>
 </div>
 
-<div>
+<div *ngIf="beer">
+  <!-- TODO make beer presentable -->
   <h2>{{ beer.id }}</h2>
   <h2>{{ beer.name }}</h2>
   <h2>{{ beer.company }}</h2>
@@ -13,7 +14,21 @@
   <h2>{{ beer.description }}</h2>
   <h2>{{ beer.imageURL }}</h2>
   <h2>{{ beer.createdDate }}</h2>
-  <h2>{{ beer.createdByUser }}</h2>   
+  <h2>{{ beer.createdByUser }}</h2>
+  
+  <div *ngFor="let review of reviews">
+    <!-- TODO make review presentable / add review card -->
+    <hr/>
+    <h2>{{ review.beerId }}</h2>
+    <h2>{{ review.reviewText }}</h2>
+    <h2>{{ review.look }}</h2>
+    <h2>{{ review.smell }}</h2>
+    <h2>{{ review.taste }}</h2>
+    <h2>{{ review.feel }}</h2>
+    <h2>{{ review.overall }}</h2>
+    <h2>{{ review.createdDate }}</h2>
+    <h2>{{ review.createdByUser }}</h2>
+    <h2>{{ review.id }}</h2>
+  </div>
 </div>
-
 

@@ -1,5 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { BeersService } from 'src/app/services/beer.service';
+import { ActivatedRoute } from '@angular/router';
+import { switchMap, map } from 'rxjs/operators';
+import { Beer } from 'src/app/shared/models/beer';
+import { Review } from 'src/app/shared/models/review';
 
 @Component({
     selector: 'beer',
@@ -7,18 +11,14 @@ import { BeersService } from 'src/app/services/beer.service';
     styleUrls: ['./beer.component.scss']
 })
 export class BeerComponent implements OnInit {
-    constructor(private beersService: BeersService) {}
+    beer: Beer;
+    reviews: Review[];
 
-    beer;
-    isDataAvailable: boolean = false;
-
-    fetchBeer(beerId) {
-        this.beer = this.beersService.fetchBeer(beerId);
+    constructor(private beersService: BeersService, private activeRoute: ActivatedRoute) {
     }
-
+    
     ngOnInit() {
-        // TODO get beerID
-        var beerId = "5dc8da9f0bc4f34070941710";
-        this.fetchBeer(beerId);
+        this.activeRoute.params.pipe(switchMap(params => this.beersService.fetchBeer(params['id']))).subscribe(res => { this.beer = res });
+        this.activeRoute.params.pipe(switchMap(params => this.beersService.fetchReviews(params['id']))).subscribe(res => { this.reviews = res });
     }
 }
