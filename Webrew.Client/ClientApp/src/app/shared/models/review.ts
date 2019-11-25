@@ -1,5 +1,4 @@
-export class Review
-{
+export class Review {
     beerId: string;
     reviewText: string;
     look: string;

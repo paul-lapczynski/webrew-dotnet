@@ -1,19 +1,21 @@
 <div>
-  <h1>Beer Page</h1>
+	<h1>Beer Page</h1>
 </div>
 
 <div>
-  <h2>{{ beer.id }}</h2>
-  <h2>{{ beer.name }}</h2>
-  <h2>{{ beer.company }}</h2>
-  <h2>{{ beer.style }}</h2>
-  <h2>{{ beer.abv }}</h2>
-  <h2>{{ beer.suggestedGlass }}</h2>
-  <h2>{{ beer.avgRating }}</h2>
-  <h2>{{ beer.description }}</h2>
-  <h2>{{ beer.imageURL }}</h2>
-  <h2>{{ beer.createdDate }}</h2>
-  <h2>{{ beer.createdByUser }}</h2>   
+	<!-- <h2>{{ beer.id }}</h2>
+	<h2>{{ beer.name }}</h2>
+	<h2>{{ beer.company }}</h2>
+	<h2>{{ beer.style }}</h2>
+	<h2>{{ beer.abv }}</h2>
+	<h2>{{ beer.suggestedGlass }}</h2>
+	<h2>{{ beer.avgRating }}</h2>
+	<h2>{{ beer.description }}</h2>
+	<h2>{{ beer.imageURL }}</h2>
+	<h2>{{ beer.createdDate }}</h2>
+	<h2>{{ beer.createdByUser }}</h2> -->
 </div>
 
-
+<div style="padding: 7px;">
+	<review (formReady)="onReviewReady($event)"></review>
+</div>
