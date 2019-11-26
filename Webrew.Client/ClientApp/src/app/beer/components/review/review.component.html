@@ -1,0 +1,86 @@
+<div [formGroup]="form"
+	*ngIf="form"
+	class="review"
+	fxLayout="column"
+	fxLayoutGap="7px">
+
+
+
+	<mat-form-field appearance="outline"
+		[floatLabel]="'always'">
+		<mat-label>Summary</mat-label>
+		<textarea matInput
+			placeholder="What did you think?"
+			formControlName="summary"
+			matTextareaAutosize
+			cdkAutosizeMinRows="3"></textarea>
+	</mat-form-field>
+
+	<mat-form-field appearance="outline"
+		[floatLabel]="'always'">
+		<mat-label>Smell {{form?.get('smell')?.value}}</mat-label>
+		<mat-slider [max]="10"
+			[min]="0"
+			class="slider"
+			[step]=".5"
+			formControlName="smell"
+			[thumbLabel]="true"
+			[tickInterval]="5">
+		</mat-slider>
+		<input matInput
+			hidden />
+	</mat-form-field>
+
+	<mat-form-field appearance="outline"
+		[floatLabel]="'always'">
+
+		<mat-label>Taste {{form?.get('taste')?.value}}</mat-label>
+		<mat-slider [max]="10"
+			formControlName="taste"
+			class="slider"
+			[min]="0"
+			[step]=".5"
+			[thumbLabel]="true"
+			[tickInterval]="5">
+			<input matInput
+				hidden />
+		</mat-slider>
+
+	</mat-form-field>
+
+	<mat-form-field appearance="outline"
+		[floatLabel]="'always'">
+		<mat-label>Look {{form?.get('look')?.value}}</mat-label>
+		<mat-slider [max]="10"
+			formControlName="look"
+			class="slider"
+			[min]="0"
+			[step]=".5"
+			[thumbLabel]="true"
+			[tickInterval]="5">
+		</mat-slider>
+		<input matInput
+			hidden />
+	</mat-form-field>
+
+	<mat-form-field appearance="outline"
+		[floatLabel]="'always'">
+		<mat-label>Look {{form?.get('feel')?.value}}</mat-label>
+		<mat-slider [max]="10"
+			formControlName="feel"
+			class="slider"
+			[min]="0"
+			[step]=".5"
+			[thumbLabel]="true"
+			[tickInterval]="5">
+		</mat-slider>
+		<input matInput
+			hidden />
+	</mat-form-field>
+
+	<div fxLayout="column">
+		<h3>Overrall</h3>
+		<star-rating formControlName="overall"
+			[starSize]="40"></star-rating>
+	</div>
+</div>

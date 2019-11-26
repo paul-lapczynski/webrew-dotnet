@@ -1,4 +1,4 @@
-import { BrowserModule } from '@angular/platform-browser';
+import { BrowserModule, HAMMER_GESTURE_CONFIG } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
@@ -6,12 +6,21 @@ import { RouterModule } from '@angular/router';
 
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MatCardModule, MatButtonModule, MatInputModule, MatCheckboxModule, MatSidenavModule } from '@angular/material';
+import {
+    MatCardModule,
+    MatButtonModule,
+    MatInputModule,
+    MatCheckboxModule,
+    MatSidenavModule,
+    GestureConfig
+} from '@angular/material';
 import { NavBarModule } from './nav-bar/nav-bar.module';
+
 @NgModule({
     declarations: [AppComponent],
     imports: [
         BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
+        BrowserAnimationsModule,
         HttpClientModule,
         FormsModule,
         RouterModule.forRoot(
@@ -37,7 +46,7 @@ import { NavBarModule } from './nav-bar/nav-bar.module';
         NavBarModule,
         MatSidenavModule
     ],
-    providers: [],
+    providers: [{ provide: HAMMER_GESTURE_CONFIG, useClass: GestureConfig }],
     bootstrap: [AppComponent]
 })
 export class AppModule {}
