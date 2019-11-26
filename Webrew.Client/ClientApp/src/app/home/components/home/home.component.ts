@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { BeersService } from 'src/app/services/beer.service';
+import { Observable } from 'rxjs';
+import { Beer } from 'src/app/shared/models/beer';
 
 @Component({
     selector: 'home',
@@ -7,10 +9,9 @@ import { BeersService } from 'src/app/services/beer.service';
     styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
-    constructor(private beersService: BeersService) {}
+    beers$: Observable<Beer[]>;
 
-    beers$;
-    isDataAvailable: boolean = false;
+    constructor(private beersService: BeersService) {}
 
     fetchBeers() {
         this.beers$ = this.beersService.fetchBeers();

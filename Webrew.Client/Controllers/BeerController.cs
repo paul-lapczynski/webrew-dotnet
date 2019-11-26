@@ -19,7 +19,7 @@ namespace webrew_dotnet.Controllers
             _logger = logger;
         }
 
-        [HttpGet]
+        [HttpGet("{id}")]
         public async Task<IActionResult> GetBeer(ObjectId id)
         {
 			var beer = await Manager.GetBeer(id);
@@ -27,14 +27,14 @@ namespace webrew_dotnet.Controllers
         }
 
         [HttpPost("update/{id}")]
-		public async Task<IActionResult> UpdateBeer([FromRoute] ObjectId id, Beer beer)
+		public async Task<IActionResult> UpdateBeer([FromRouteAttribute] ObjectId id, [FromBodyAttribute] Beer beer)
 		{
 			var result = await Manager.UpdateBeer(id, beer);
 
 			return Created(ControllerContext.HttpContext.Request.Host.ToUriComponent(), result);
 		}
         
-        [HttpPost("remove")]
+        [HttpPost("remove/{id}")]
 		public async Task<IActionResult> RemoveBeer(ObjectId id)
 		{
 			var result = await Manager.RemoveBeer(id);

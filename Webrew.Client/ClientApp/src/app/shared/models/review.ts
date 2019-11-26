@@ -2,11 +2,11 @@ export class Review
 {
     beerId: string;
     reviewText: string;
-    look: string;
+    look: number;
     smell: number;
-    taste: string;
+    taste: number;
     feel: number;
-    overall: string;
+    overall: number;
     createdDate: Date;
     createdByUser: string;
     id: string;

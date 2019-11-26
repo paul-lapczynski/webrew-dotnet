@@ -10,10 +10,10 @@ export class BeersService {
     fetchBeers(): Observable<Beer[]> {
         return this.http.get<Beer[]>('/api/Home/');
     }
-    fetchBeer(beerId): Observable<Beer[]> {
-        return this.http.get<Beer[]>('/api/Beer?id=' + beerId);
+    fetchBeer(beerId: string): Observable<Beer> {
+        return this.http.get<Beer>('/api/Beer/' + beerId);
     }
-    fetchReviews(beerId): Observable<Review[]> {
-        return this.http.get<Review[]>('/api/Review?beerId=' + beerId);
+    fetchReviews(beerId: string): Observable<Review[]> {
+        return this.http.get<Review[]>('/api/Review/' + beerId);
     }
 }
