@@ -14,10 +14,12 @@ namespace Webrew.Managers
 	public class ReviewManager : IReviewManager
 	{
 		private readonly IReviewCollection Collection;
-		public ReviewManager(IReviewCollection collection)
+        private readonly IBeerCollection BeerCollection;
+        public ReviewManager(IReviewCollection collection, IBeerCollection beerCollection)
 		{
 			Collection = collection;
-		}
+            BeerCollection = beerCollection;
+        }
 
 		public async Task<List<Review>> GetReviews(string beerId)
 		{
@@ -26,17 +28,42 @@ namespace Webrew.Managers
 
 		public async Task<Review> AddReview(Review review)
 		{
-			return await Collection.AddAsync(review);
-		}
+			Review rtn = await Collection.AddAsync(review);
+            UpdateRating(review.BeerId);
+            return rtn;
+        }
 
         public async Task<bool> UpdateReview(ObjectId id, Review review)
         {
-            return await Collection.UpdateAsync(id, review);
+            bool rtn = await Collection.UpdateAsync(id, review);
+            if (rtn) {
+                UpdateRating(review.BeerId);
+            }
+            return rtn;
         }
 
         public async Task<bool> RemoveReview(ObjectId id)
 		{
-			return await Collection.RemoveAsync(id);
-		}
+            Review review = await Collection.GetAsync(id);
+            bool rtn = await Collection.RemoveAsync(id);
+            if (rtn)
+            {
+                UpdateRating(review.BeerId);
+            }
+            return rtn;
+        }
+
+        public async void UpdateRating(string beerId) 
+        {
+            List<Review> reviews = await GetReviews(beerId);
+            Beer beer = await BeerCollection.GetAsync(new ObjectId(beerId));
+            float rating = 0f;
+            foreach (Review review in reviews) {
+                rating += review.Overall;
+            }
+            float avgRating = rating / (float)reviews.Count;
+            beer.AvgRating = avgRating;
+            await BeerCollection.UpdateAsync(beer.Id, beer);
+        }
     }
 }
