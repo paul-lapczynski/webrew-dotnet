@@ -1,8 +1,34 @@
 <div>
-  <h1>Chat Page</h1>
+  <h1>Chat</h1>
 </div>
 
-<div *ngFor="let chat of chats$ | async">
-  <p>Chat: {{ chat.id }}</p>
+<div class="container loading-wrapper" style="width: 50%; margin: 15px auto; display: block;">
+  <div class="row">
+    <div class="messages-container">
+      <div class="col-xs-12" style="padding-right:0px; padding-left:0px;">
+        <div class="messages">
+
+          <p *ngFor="let chat of chats$ | async">
+            <span class="username">InsertUserName:</span>
+            {{ chat.id }} InsertMessage
+            <span class="timestamp">– InsertTimeStamp</span>
+          </p>          
+        
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-xs-12" style="padding-right:0px; padding-left:0px;">
+      <div class="add-message">     
+        <div class="form-group">  
+          <textarea id="messagebox" class="form-control message" placeholder="Write a message"></textarea>
+        </div>      
+        <div class="form-group clearfix">
+          <input type="submit" class="btn btn-primary pull-right send-message" value="Send message">
+        </div>  
+      </div>          
+    </div>
+  </div>
 </div>
 

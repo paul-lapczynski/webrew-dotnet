@@ -1,8 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { BeersService } from 'src/app/services/beer.service';
-import { FormGroup, FormControl, FormBuilder } from '@angular/forms';
-import { ReviewComponent, ReviewReadyEvent } from '../review/review.component';
+import { ActivatedRoute } from '@angular/router';
+import { switchMap, map } from 'rxjs/operators';
 import { Beer } from 'src/app/shared/models/beer';
+import { Review } from 'src/app/shared/models/review';
+import { Observable } from 'rxjs';
+import { FormGroup } from '@angular/forms';
+import { ReviewReadyEvent } from '../review/review.component';
 
 @Component({
     selector: 'beer',
@@ -10,20 +14,16 @@ import { Beer } from 'src/app/shared/models/beer';
     styleUrls: ['./beer.component.scss']
 })
 export class BeerComponent implements OnInit {
-    constructor(private beersService: BeersService, private fb: FormBuilder) {}
-
     beer: Beer;
-
-    isDataAvailable: boolean = false;
+    reviews$: Observable<Review[]>;
     form: FormGroup;
-    fetchBeer(beerId) {
-        // this.beer = this.beersService.fetchBeer(beerId);
-    }
+    constructor(private beersService: BeersService, private activeRoute: ActivatedRoute) {}
 
     ngOnInit() {
-        // TODO get beerID
-        var beerId = '5dc8da9f0bc4f34070941710';
-        this.fetchBeer(beerId);
+        this.activeRoute.params.pipe(switchMap(params => this.beersService.fetchBeer(params['id']))).subscribe(res => {
+            this.beer = res;
+        });
+        this.reviews$ = this.activeRoute.params.pipe(switchMap(params => this.beersService.fetchReviews(params['id'])));
     }
 
     onReviewReady(event: ReviewReadyEvent) {

@@ -2,8 +2,9 @@
 	<h1>Beer Page</h1>
 </div>
 
-<div>
-	<!-- <h2>{{ beer.id }}</h2>
+<div *ngIf="beer">
+	<!-- TODO make beer presentable -->
+	<h2>{{ beer.id }}</h2>
 	<h2>{{ beer.name }}</h2>
 	<h2>{{ beer.company }}</h2>
 	<h2>{{ beer.style }}</h2>
@@ -11,11 +12,21 @@
 	<h2>{{ beer.suggestedGlass }}</h2>
 	<h2>{{ beer.avgRating }}</h2>
 	<h2>{{ beer.description }}</h2>
-	<h2>{{ beer.imageURL }}</h2>
+	<img src="{{ beer.imageURL }}"
+		alt="Photo of {{ beer.name }}"
+		class="beer-image">
 	<h2>{{ beer.createdDate }}</h2>
-	<h2>{{ beer.createdByUser }}</h2> -->
-</div>
+	<h2>{{ beer.createdByUser }}</h2>
 
-<div style="padding: 7px;">
-	<review (formReady)="onReviewReady($event)"></review>
+	<div fxLayout="row layout-wrap"
+		[fxLayoutAlign.gt-md]="'start space-between'"
+		[fxLayoutAlign.lt-lg]="'center'"
+		[fxLayoutGap]="'8px grid'">
+
+		<review-card *ngFor="let review of reviews$ | async"
+			[review]="review"
+			[fxFlex.xs]="'436px'"
+			[fxFlex.gt-xs]="'436px'"></review-card>
+
+	</div>
 </div>
