@@ -4,6 +4,7 @@ import { ActivatedRoute } from '@angular/router';
 import { switchMap, map } from 'rxjs/operators';
 import { Beer } from 'src/app/shared/models/beer';
 import { Review } from 'src/app/shared/models/review';
+import { Observable } from 'rxjs';
 
 @Component({
     selector: 'beer',
@@ -12,7 +13,7 @@ import { Review } from 'src/app/shared/models/review';
 })
 export class BeerComponent implements OnInit {
     beer: Beer;
-    reviews: Review[];
+    reviews$: Observable<Review[]>;
 
     constructor(private beersService: BeersService, private activeRoute: ActivatedRoute) {
     }

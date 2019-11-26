@@ -12,23 +12,20 @@
   <h2>{{ beer.suggestedGlass }}</h2>
   <h2>{{ beer.avgRating }}</h2>
   <h2>{{ beer.description }}</h2>
-  <h2>{{ beer.imageURL }}</h2>
+	<img src="{{ beer.imageURL }}"	alt="Photo of {{ beer.name }}" class="beer-image">
   <h2>{{ beer.createdDate }}</h2>
   <h2>{{ beer.createdByUser }}</h2>
   
-  <div *ngFor="let review of reviews">
-    <!-- TODO make review presentable / add review card -->
-    <hr/>
-    <h2>{{ review.beerId }}</h2>
-    <h2>{{ review.reviewText }}</h2>
-    <h2>{{ review.look }}</h2>
-    <h2>{{ review.smell }}</h2>
-    <h2>{{ review.taste }}</h2>
-    <h2>{{ review.feel }}</h2>
-    <h2>{{ review.overall }}</h2>
-    <h2>{{ review.createdDate }}</h2>
-    <h2>{{ review.createdByUser }}</h2>
-    <h2>{{ review.id }}</h2>
+  <div fxLayout="row layout-wrap"
+  [fxLayoutAlign.gt-md]="'start space-between'"
+  [fxLayoutAlign.lt-lg]="'center'"
+  [fxLayoutGap]="'8px grid'">
+
+  <review-card *ngFor="let review of reviews$ | async"
+    [review]="review"
+    [fxFlex.xs]="'436px'"
+    [fxFlex.gt-xs]="'436px'"></review-card>
+
   </div>
 </div>
 
