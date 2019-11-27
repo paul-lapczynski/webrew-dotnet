@@ -11,7 +11,7 @@ namespace webrew_dotnet.Helpers.Startup
 	{
 		public override ObjectId ReadJson(JsonReader reader, Type objectType, ObjectId existingValue, bool hasExistingValue, JsonSerializer serializer)
 		{
-			if (reader.Value is string strValue)
+			if (reader.Value is string strValue && !string.IsNullOrEmpty(strValue))
 			{
 				return ObjectId.Parse(strValue);
 			}

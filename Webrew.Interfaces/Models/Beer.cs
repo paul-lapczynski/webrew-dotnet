@@ -10,9 +10,9 @@ namespace Webrew.Common.Models
 		public string Company { get; set; }
 		public string Name { get; set; }
 		public string Style { get; set; }
-		public float ABV { get; set; }
+		public decimal ABV { get; set; }
 		public string SuggestedGlass { get; set; }
-		public float AvgRating { get; set; }
+		public decimal AvgRating { get; set; }
 		public string Description { get; set; }
 		public string ImageURL { get; set; }
 		public DateTime CreatedDate { get; set; }

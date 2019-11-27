@@ -7,9 +7,10 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace webrew_dotnet.Controllers
 {
-    [Route("api/[controller]")]
-    [ApiController]
-    public class ApiControllerBase : ControllerBase
-    {
-    }
+	[Route("api/[controller]")]
+	[ApiController]
+	public class ApiControllerBase : ControllerBase
+	{
+		public ApiControllerBase() { }
+	}
 }

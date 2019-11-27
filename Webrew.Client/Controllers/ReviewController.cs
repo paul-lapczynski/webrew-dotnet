@@ -20,14 +20,14 @@ namespace webrew_dotnet.Controllers
         }
 
         [HttpGet("{beerId}")]
-        public async Task<IActionResult> GetReviews(string beerId)
+        public async Task<IActionResult> GetReviews(ObjectId beerId)
         {
             var reviews = await Manager.GetReviews(beerId);
             return Ok(reviews);
         }
 
         [HttpPost("add")]
-		public async Task<IActionResult> AddReview(Review review)
+		public async Task<IActionResult> AddReview([FromBody]Review review)
 		{
 			var result = await Manager.AddReview(review);
 

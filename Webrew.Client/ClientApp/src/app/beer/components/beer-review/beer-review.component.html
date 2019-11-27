@@ -1,0 +1,18 @@
+<div class="container"
+	fxLayout="column">
+	<a [routerLink]="['../']"
+		id="beer-review"
+		fxFlexAlign="start">
+		<button mat-button>
+			<mat-icon>arrow_back</mat-icon><span>Back</span>
+		</button>
+	</a>
+	<review (formReady)="onFormReady($event)"
+		fxFlexAlign="start"></review>
+	<button mat-button
+		(click)="submitReview()"
+		fxFlexAlign="end"
+		color="accent">
+		<mat-icon>local_cafe</mat-icon><span>Submit</span>
+	</button>
+</div>

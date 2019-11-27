@@ -1,35 +1,42 @@
 <mat-card class="review-card">
 	<mat-card-header>
-		<mat-card-title>{{ review.createdByUser }} had a brew at {{ beer.createdDate  | date: "medium"}}</mat-card-title>
+		<mat-card-title>{{ review.createdByUser }} had a brew at {{ review.createdDate  | date: 'short'}}</mat-card-title>
 		<mat-card-subtitle>Overall Rating: {{ review.overall }}</mat-card-subtitle>
 	</mat-card-header>
 	<mat-card-content>
 		<div class="media-body">
-			<!-- <div class="dropdown" style="position: absolute; right: 15px;">
-				<i class="fa fa-pencil-square-o fa-2x dropdown-toggle" aria-hidden="true" data-toggle="dropdown" aria-expanded="false"></i>
-				<ul class="dropdown-menu" style="position:relative">
-			  		<li><a class="editRebrewModal">Edit</a></li>
-			  		<li><a class="delRebrewModal">Delete</a></li>
-				</ul>
-		  	</div> -->
-		  	<p class="newlines">{{ review.reviewText }}</p>
-		  	<h4 class="newlines">Brew Profile</h4>
-		  	<div class="datagrid">
-		  		<table>
+			<p class="newlines">{{ review.reviewText }}</p>
+			<h4 class="newlines">Brew Profile</h4>
+			<div class="datagrid">
+				<table>
 					<thead>
-						<tr><th>Attribute</th><th>Rating</th></tr>
+						<tr>
+							<th>Attribute</th>
+							<th>Rating</th>
+						</tr>
 					</thead>
 					<tbody>
-						<tr><td>Look</td><td>{{ review.look }}</td></tr>
-						<tr><td>Smell</td><td>{{ review.smell }}</td></tr>
-						<tr><td>Taste</td><td>{{ review.taste }}</td></tr>
-						<tr><td>Feel</td><td>{{ review.feel }}</td></tr>
+						<tr>
+							<td>Look</td>
+							<td>{{ review.look }}</td>
+						</tr>
+						<tr>
+							<td>Smell</td>
+							<td>{{ review.smell }}</td>
+						</tr>
+						<tr>
+							<td>Taste</td>
+							<td>{{ review.taste }}</td>
+						</tr>
+						<tr>
+							<td>Feel</td>
+							<td>{{ review.feel }}</td>
+						</tr>
 					</tbody>
-		  		</table>
-		  	</div>
+				</table>
+			</div>
 		</div>
 	</mat-card-content>
 	<mat-card-footer class="footer">
-		BeerId: {{ review.beerId }} , ReviewId: {{ review.id }}
 	</mat-card-footer>
 </mat-card>

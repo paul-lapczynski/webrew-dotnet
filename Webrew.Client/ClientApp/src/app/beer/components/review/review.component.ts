@@ -37,5 +37,8 @@ export class ReviewComponent implements OnInit {
     ngOnInit() {
         this.form = ReviewComponent.BuildReviewForm(this.fb);
         this.formReady.emit({ form: this.form });
+        setTimeout(() => {
+            (window.document.getElementById('summary') as HTMLElement).focus();
+        }, 200);
     }
 }

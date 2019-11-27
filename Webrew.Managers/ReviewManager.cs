@@ -19,13 +19,14 @@ namespace Webrew.Managers
 			Collection = collection;
 		}
 
-		public async Task<List<Review>> GetReviews(string beerId)
+		public async Task<List<Review>> GetReviews(ObjectId beerId)
 		{
 			return await Collection.GetListAsync(r => r.BeerId == beerId);
 		}
 
 		public async Task<Review> AddReview(Review review)
 		{
+			review.CreatedDate = DateTime.UtcNow;
 			return await Collection.AddAsync(review);
 		}
 

@@ -6,12 +6,23 @@ import { HttpClientModule } from '@angular/common/http';
 import { BeersService } from '../services/beer.service';
 import { ReviewComponent } from './components/review/review.component';
 import { ReactiveFormsModule } from '@angular/forms';
-import { MatFormFieldModule, MatSliderModule } from '@angular/material';
+import {
+    MatFormFieldModule,
+    MatSliderModule,
+    MatCardModule,
+    MatDividerModule,
+    MatButtonModule,
+    MatIconModule,
+    MatDialogModule
+} from '@angular/material';
 import { StarRatingModule } from '../star-rating/star-rating.module';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { MatInputModule } from '@angular/material/input';
+import { ReviewCardModule } from '../review-card/review-card.module';
+import { BeerReviewComponent } from './components/beer-review/beer-review.component';
+import { RouterModule } from '@angular/router';
 @NgModule({
-    declarations: [BeerComponent, ReviewComponent],
+    declarations: [BeerComponent, ReviewComponent, BeerReviewComponent],
     imports: [
         CommonModule,
         BeerRoutingModule,
@@ -21,7 +32,13 @@ import { MatInputModule } from '@angular/material/input';
         MatSliderModule,
         StarRatingModule,
         MatInputModule,
-        FlexLayoutModule
+        FlexLayoutModule,
+        ReviewCardModule,
+        MatCardModule,
+        MatDividerModule,
+        MatButtonModule,
+        MatIconModule,
+        RouterModule
     ],
     providers: [BeersService]
 })

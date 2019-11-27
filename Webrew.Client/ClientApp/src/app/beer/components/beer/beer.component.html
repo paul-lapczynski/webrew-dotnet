@@ -1,32 +1,70 @@
-<div>
-	<h1>Beer Page</h1>
-</div>
+<div *ngIf="beer"
+	class="container-beer">
+	<div fxLayout="column"
+		class="title-container">
+		<span class="beer-title">{{beer.name}}</span>
+		<span class="beer-sub-title">{{beer.company}}</span>
+	</div>
+	<div class="image-container"
+		fxLayout="column">
+		<img [src]="beer?.imageURL"
+			fxFlexAlign="center"
+			#img
+			(load)="onImageLoad(img)"
+			class="beer-image" />
+		<star-rating [starSize]="64"
+			[formControl]="starRating"
+			fxFlexAlign="center"></star-rating>
+	</div>
 
-<div *ngIf="beer">
-	<!-- TODO make beer presentable -->
-	<h2>{{ beer.id }}</h2>
-	<h2>{{ beer.name }}</h2>
-	<h2>{{ beer.company }}</h2>
-	<h2>{{ beer.style }}</h2>
-	<h2>{{ beer.abv }}</h2>
-	<h2>{{ beer.suggestedGlass }}</h2>
-	<h2>{{ beer.avgRating }}</h2>
-	<h2>{{ beer.description }}</h2>
-	<img src="{{ beer.imageURL }}"
-		alt="Photo of {{ beer.name }}"
-		class="beer-image">
-	<h2>{{ beer.createdDate }}</h2>
-	<h2>{{ beer.createdByUser }}</h2>
+	<span class="description">
+		{{beer.description}}
+	</span>
+	<mat-card fxLayout="row wrap"
+		fxLayoutAlign="space-between"
+		fxLayoutGap="8px">
+		<div fxLayout="column">
+			<span class="item-value">
+				{{beer.abv | number: '1.2-2'}}
+			</span>
+			<span class="item-label">
+				ABV
+			</span>
+		</div>
+		<div fxLayout="column">
+			<span class="item-value">
+				{{beer.style}}
+			</span>
+			<span class="item-label">
+				Style
+			</span>
+		</div>
+		<div fxLayout="column">
+			<span class="item-value">
+				{{beer.suggestedGlass}}
+			</span>
+			<span class="item-label">
+				Suggested glass
+			</span>
+		</div>
+	</mat-card>
+	<mat-divider style="margin: 20px 0px;"></mat-divider>
+	<div>
+	</div>
 
 	<div fxLayout="row layout-wrap"
 		[fxLayoutAlign.gt-md]="'start space-between'"
 		[fxLayoutAlign.lt-lg]="'center'"
 		[fxLayoutGap]="'8px grid'">
-
 		<review-card *ngFor="let review of reviews$ | async"
 			[review]="review"
 			[fxFlex.xs]="'436px'"
 			[fxFlex.gt-xs]="'436px'"></review-card>
-
 	</div>
+	<button mat-fab
+		class="fab"
+		[routerLink]="['review']"
+		(click)="addReview()">
+		<mat-icon>add</mat-icon>
+	</button>
 </div>
