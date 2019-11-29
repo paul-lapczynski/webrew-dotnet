@@ -1,12 +1,13 @@
 <mat-card class="review-card">
 	<mat-card-header>
 		<mat-card-title>{{ review.createdByUser }} had a brew at {{ review.createdDate  | date: 'short'}}</mat-card-title>
-		<mat-card-subtitle>Overall Rating: {{ review.overall }}</mat-card-subtitle>
+		<mat-card-subtitle>Overall Rating: <star-rating [disabled]="true" [value]="review.overall"></star-rating>
+		</mat-card-subtitle>
 	</mat-card-header>
 	<mat-card-content>
 		<div class="media-body">
-			<p class="newlines">{{ review.reviewText }}</p>
-			<h4 class="newlines">Brew Profile</h4>
+			<p class="newlines">{{ review.summary }}</p>
+			<!-- <h4 class="newlines">Brew Profile</h4> -->
 			<div class="datagrid">
 				<table>
 					<thead>

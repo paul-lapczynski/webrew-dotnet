@@ -15,6 +15,11 @@ export class StarRatingComponent implements OnInit, ControlValueAccessor {
     @Input()
     disabled = false;
 
+    @Input()
+    set value(value: number){
+        this.setValue(value, true);
+    }
+
     fill = StarFill;
     stars = [1, 2, 3, 4, 5];
     rating = 0;
@@ -28,8 +33,8 @@ export class StarRatingComponent implements OnInit, ControlValueAccessor {
 
     ngOnInit() {}
 
-    setValue(value: number) {
-        if (this.disabled) {
+    setValue(value: number, bypassDisabledState = false) {
+        if (this.disabled && !bypassDisabledState) {
             return;
         }
         this.rating = value;

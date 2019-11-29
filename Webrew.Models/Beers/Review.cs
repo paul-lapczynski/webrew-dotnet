@@ -10,11 +10,11 @@ namespace Webrew.Models.Beers
 	{
 		public string BeerId { get; set; }
         public string ReviewText { get; set; }
-        public float Look { get; set; }
-        public float Smell { get; set; }
-        public float Taste { get; set; }
-        public float Feel { get; set; }
-        public float Overall { get; set; }
+        public decimal Look { get; set; }
+        public decimal Smell { get; set; }
+        public decimal Taste { get; set; }
+        public decimal Feel { get; set; }
+        public decimal Overall { get; set; }
 		public DateTime CreatedDate { get; set; }
 		public string CreatedByUser { get; set; }
 	}

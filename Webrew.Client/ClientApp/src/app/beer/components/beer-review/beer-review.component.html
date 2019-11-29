@@ -3,15 +3,16 @@
 	<a [routerLink]="['../']"
 		id="beer-review"
 		fxFlexAlign="start">
-		<button mat-button>
+		<button mat-button
+			[disabled]="form?.disabled">
 			<mat-icon>arrow_back</mat-icon><span>Back</span>
 		</button>
 	</a>
-	<review (formReady)="onFormReady($event)"
-		fxFlexAlign="start"></review>
+	<review (formReady)="onFormReady($event)"></review>
 	<button mat-button
 		(click)="submitReview()"
 		fxFlexAlign="end"
+		[disabled]="form?.disabled"
 		color="accent">
 		<mat-icon>local_cafe</mat-icon><span>Submit</span>
 	</button>
