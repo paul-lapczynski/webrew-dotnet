@@ -1,5 +1,46 @@
-<div>
-  <h1>Login Page</h1>
+<div class="login-container"
+	fxLayout="column"
+	fxLayoutGap="7px"
+	fxLayoutAlign="top center"
+    [formGroup]="form"
+	*ngIf="form">
+	<mat-card>
+		<h3 mat-card-header>Login</h3>
+		<mat-card-content fxLayout="column">
+			<mat-form-field appearance="outline">
+				<mat-label>Username</mat-label>
+				<input matInput
+					id="username"
+					formControlName="username"
+					autocomplete="off"
+					type="text"
+					[disabled]="form?.disabled" />
+			</mat-form-field>
+			<mat-form-field appearance="outline">
+				<mat-label>Password</mat-label>
+				<input matInput
+					id="password"
+					formControlName="password"
+					autocomplete="off"
+					type="password"
+					[disabled]="form?.disabled" />
+			</mat-form-field>
+		</mat-card-content>
+		<mat-card-actions>
+			<button mat-button
+				align="start"
+				(click)="submitCreate()"
+				[disabled]="form?.disabled"
+				color="accent">
+				Create Account
+			</button>
+			<button mat-button
+				align="start"
+				(click)="submitLogin()"
+				[disabled]="form?.disabled"
+				color="accent">
+				Login
+			</button>
+		</mat-card-actions>
+	</mat-card>
 </div>
-
-

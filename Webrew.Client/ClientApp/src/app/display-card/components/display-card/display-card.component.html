@@ -19,9 +19,9 @@
 		<div mat-card-style
 			class="float-left">Style: {{ beer.style }}</div>
 		<div mat-card-avgrating
-			class="float-right">Avg Rating: {{ beer.avgRating }}</div>
+			class="float-right">Avg Rating: {{ beer.avgRating | number: "1.1-2" }}</div>
 		<div mat-card-abv
-			class="float-center">ABV: {{ beer.abv }}%</div>
+			class="float-center">ABV: {{beer.abv | number: '1.2-2'}}%</div>
 		<hr />
 		<div>
 			<p mat-card-desc>{{ beer.description }}</p>

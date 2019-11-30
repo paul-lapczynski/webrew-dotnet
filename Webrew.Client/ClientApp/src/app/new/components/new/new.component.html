@@ -1,4 +1,70 @@
-<div>
-  <h1>New Beer</h1>
-</div>
+<div [formGroup]="form"
+  *ngIf="form"
+	fxLayout="column"
+  fxLayoutGap="7px"
+  class="container">
+  <mat-form-field appearance="outline">
+    <mat-label>Company</mat-label>
+    <input matInput
+      id="company"
+      formControlName="company"
+      type="text"
+      [disabled]="form?.disabled" />
+  </mat-form-field>
+  <mat-form-field appearance="outline">
+      <mat-label>Name</mat-label>
+      <input matInput
+        id="name"
+        formControlName="name"
+        type="text"
+        [disabled]="form?.disabled" />
+  </mat-form-field>
+  <mat-form-field appearance="outline">
+      <mat-label>Description</mat-label>
+      <input matInput
+        id="description"
+        formControlName="description"
+        type="text"
+        [disabled]="form?.disabled" />
+  </mat-form-field>
+  <mat-form-field appearance="outline">
+      <mat-label>Style</mat-label>
+      <input matInput
+        id="style"
+        formControlName="style"
+        type="text"
+        [disabled]="form?.disabled" />
+  </mat-form-field>
+  <mat-form-field appearance="outline">
+      <mat-label>ABV</mat-label>
+      <input matInput
+        id="abv"
+        formControlName="abv"
+        type="text"
+        [disabled]="form?.disabled" />
+  </mat-form-field>
+  <mat-form-field appearance="outline">
+      <mat-label>Suggested Glass</mat-label>
+      <input matInput
+        id="suggestedGlass"
+        formControlName="suggestedGlass"
+        type="text"
+        [disabled]="form?.disabled" />
+  </mat-form-field>
+  <mat-form-field appearance="outline">
+      <mat-label>Image URL</mat-label>
+      <input matInput
+        id="imageURL"
+        formControlName="imageURL"
+        type="text"
+        [disabled]="form?.disabled" />
+  </mat-form-field>
 
+  <button mat-button
+    (click)="addBeer()"
+    fxFlexAlign="end"
+    [disabled]="form?.disabled"
+    color="accent">
+    <mat-icon>local_cafe</mat-icon><span>Submit</span>
+  </button>
+</div>

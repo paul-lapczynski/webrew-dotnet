@@ -16,8 +16,10 @@ export class BeersService {
     fetchReviews(beerId: string): Observable<Review[]> {
         return this.http.get<Review[]>('/api/Review/' + beerId);
     }
-
     addReview(review: Review) {
         return this.http.post<any>('/api/Review/add', review);
+    }
+    addBeer(beer: Beer) {
+        return this.http.post<any>('/api/Home/', beer);
     }
 }
