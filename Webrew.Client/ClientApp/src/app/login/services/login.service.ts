@@ -1,21 +1,19 @@
-import { Injectable } from '@angular/core';
+import { Injectable, Inject } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { User } from '../models/user';
 import { UserLogin } from '../models/user-login';
 
 @Injectable({
-  providedIn: 'root'
+    providedIn: 'root'
 })
 export class LoginService {
+    constructor(private http: HttpClient, @Inject('API_BASE_URL') private baseUrl: string) {}
 
-  constructor(private http: HttpClient) {}
+    createAccount(user: User) {
+        return this.http.post<any>(this.baseUrl + 'UserManagement/CreateAccount', user);
+    }
 
-  createAccount(user: User) {
-      return this.http.post<any>('/api/UserManagement/CreateAccount', user);
-  }
-
-  loginAccount(userLogin: UserLogin) {
-    return this.http.post<any>('/api/UserManagement/Login', userLogin);
-  }
-
+    loginAccount(userLogin: UserLogin) {
+        return this.http.post<any>(this.baseUrl + 'UserManagement/Login', userLogin);
+    }
 }
